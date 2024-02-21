@@ -2,20 +2,22 @@
     --primary: #FF2751;
     --secondary: #FFC82E;
     --margin-per-section: 90px 0px 69px 0px;
+    --color-white: #FFFF;
 }
+
 body {
     margin: 0;
     min-width: 100%;    
     overflow-x: hidden;
-
 }
+
 .btn {
     background-color: var(--secondary);
-    color: white;
+    color: var(--color-white);
     border-radius: 40px ;
 }
 .btn:hover{
-    background-color: white;
+    background-color: var(--color-white);
     color: var(--secondary);
     border-radius: 40px ;
 }
@@ -28,12 +30,12 @@ header .navbar-expand-lg .navbar-collapse {
     justify-content: flex-end;
 }
 
-
 header .navbar-expand-lg .navbar-collapse a {
     font-size: 16px;
     line-height: 16px;
     letter-spacing: -0.5px;
     color: #FFF;
+   
 }
 
 header .navbar-expand-lg .navbar-collapse a:first-child {
@@ -52,20 +54,21 @@ header h2 {
     object-fit: cover;
     border-radius: 20px 0px 0px 20px !important;
 }
+
 .main-section {
     background-color: var(--primary);
-    padding: 50px 0px 0px 0px;
+    padding: 50px 0px 30px 0px;
 }
 
 section h1 {
     font-size: 64px;
-    color: white;
+    color: var(--color-white);
     font-weight: 600;
     letter-spacing: 2px;
 }
 
 section p {
-    color: white;
+    color: var(--color-white);
 }
 
 section .info {
@@ -83,4 +86,45 @@ section .arrow {
     margin: 30px 0px;
     border-radius: 12px;
     border: none;
+    padding: 45px;
+}
+
+.card:last-child {
+    background-color: var(--primary) ;
+    color: var(--color-white);
+    list-style: none;
+}
+
+.card .item-title {
+    color: var(--primary);
+    margin-bottom: 32px;
+}
+.card .img-star {
+    margin-right: -122px;
+}
+
+.card .item-number {
+    background-color: var(--primary);
+    color: var(--color-white);
+    margin-right: 21px;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.margin-section {
+    margin: var(--margin-per-section);
+}
+
+.mini-card{
+    background-color: var(--primary);
+    width: 100%;
+    border-radius: 12px;
+    padding: 30px;
+    color: var(--color-white);
+    min-height: 160px;
+    margin-bottom: 23px;
+}
+
+.mini-card p {
+    margin: 0px !important;
 }
