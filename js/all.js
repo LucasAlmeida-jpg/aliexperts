@@ -47,6 +47,32 @@ createApp({
         { content: 'Ter disponibilidade para participar do programa e entregar conteúdos até março de 2025;' },
         { content: 'Caso você seja aprovado, é obrigatório o opt-in das suas redes sociais para analisarmos os resultados das postagens;' },
       ],
+      tutors: [
+        { image: "assets/Group155.png", 
+        name: "@nome da influencer aqui",
+        description: "Caso você seja aprovado, é obrigató;"
+        },
+        { image: "assets/Group156.png", 
+        name: "@nome da influencer aqui",
+        description: "Caso você seja aprovado, é obrigató;"
+        },
+        { image: "assets/Group157.png", 
+        name: "@nome da influencer aqui",
+        description: "Caso você seja aprovado, é obrigató;"
+        },
+        { image: "assets/Group155.png", 
+        name: "@nome da influencer aqui",
+        description: "Caso você seja aprovado, é obrigató;"
+        },
+        { image: "assets/Group155.png", 
+        name: "@nome da influencer aqui",
+        description: "Caso você seja aprovado, é obrigató;"
+        },
+        { image: "assets/Group155.png", 
+        name: "@nome da influencer aqui",
+        description: "Caso você seja aprovado, é obrigató;"
+        },
+      ],
     }
   },
 

@@ -11,6 +11,9 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -109,6 +112,22 @@
             </div>
             <div class="container">
                 <h2 class="margin-section">Aprenda com especialistas</h2>
+                <div class="carousel" data-flickity='{ "wrapAround": true }'>    <div class="carousel-cell" v-for="(tutor, index) in tutors" :key="index">
+                            <div>
+                               <img :src="tutor.image" alt="">
+                            </div>
+                            <div>
+                                {{tutor.name}}
+                            </div>
+                            <hr>
+                            
+                            <div>
+                                {{tutor.description}}
+                            </div>
+                        </div>                 
+                  </div>
+                  <h2 class="margin-section">Aprenda com especialistas</h2>
+
             </div>
         </main>
     </div>
