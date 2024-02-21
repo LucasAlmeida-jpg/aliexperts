@@ -8,8 +8,8 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
@@ -30,7 +30,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
+
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <ul class="navbar-nav col-xl-8">
                             <li class="nav-item">
@@ -56,15 +56,17 @@
                 </div>
             </nav>
         </header>
-    
+
         <section class="main-section">
             <div class="row container-fluid-0">
                 <div class="col-md-6 info">
                     <div>
                         <h1>AliExperts <br> Creator Program</h1>
-                        <p>Já pensou em crescer suas redes e sua monetização <br> em parceria com o AliExpress? Inscreva-se
+                        <p>Já pensou em crescer suas redes e sua monetização <br> em parceria com o AliExpress?
+                            Inscreva-se
                             para o <br> primeiro programa de crescimento para <br> nanoinfluenciadores, os
-                            <strong>AliExperts!</strong></p>
+                            <strong>AliExperts!</strong>
+                        </p>
                         <button class="btn">
                             Inscreva-se <span><img class="arrow" src="assets/Arrow 1.png" alt=""></span>
                         </button>
@@ -75,7 +77,7 @@
                 </div>
             </div>
         </section>
-    
+
         <main>
             <div class="container">
                 <h2 class="margin-section">Como funciona o AliExperts</h2>
@@ -84,7 +86,8 @@
                         <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img
                                 :src="item.image" alt=""></div>
                         <div class="col-md-6 info">
-                            <h2 class="item-title"><span class="item-number">{{item.numbers}}</span>{{ item.title }}</h2>
+                            <h2 class="item-title"><span class="item-number">{{item.numbers}}</span>{{ item.title }}
+                            </h2>
                             <p class="item-description" v-html="item.description"></p>
                         </div>
                     </div>
@@ -112,27 +115,36 @@
             </div>
             <div class="container">
                 <h2 class="margin-section">Aprenda com especialistas</h2>
-                <div class="carousel" data-flickity='{ "wrapAround": true }'>    <div class="carousel-cell" v-for="(tutor, index) in tutors" :key="index">
-                            <div>
-                               <img :src="tutor.image" alt="">
-                            </div>
-                            <div>
-                                {{tutor.name}}
-                            </div>
-                            <hr>
-                            
-                            <div>
-                                {{tutor.description}}
-                            </div>
-                        </div>                 
-                  </div>
-                  <h2 class="margin-section">Aprenda com especialistas</h2>
-
+                <div class="carousel" data-flickity='{ "wrapAround": true }'>
+                    <div class="carousel-cell" v-for="(tutor, index) in tutors" :key="index">
+                        <div>
+                            <img :src="tutor.image" alt="">
+                        </div>
+                        <div class="spacement-name">
+                            {{tutor.name}}
+                        </div>
+                        <hr>
+                        <div class="spacement-desc">
+                            {{tutor.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h2 class="margin-section">Conteúdo educacional do AliExperts</h2>
+                <div class="row gap-2 d-flex justify-content-center text-center">
+                    <div v-for="(item, index) in cards" :key="index" class="col-md card-educational">
+                        <div>
+                            <span class="item-number">{{item.numbers}}</span>
+                        <p class="mt-4">{{item.description}}</p>
+                        </div>
+                    </div>  
+                </div>
             </div>
         </main>
     </div>
 
-<script src="./js/all.js"></script>
+    <script src="./js/all.js"></script>
 </body>
 
 </html>

@@ -35,6 +35,28 @@ createApp({
           description: "Teremos professores e aulas com especialistas em vendas através das redes sociais, além de suporte ao criador pelo nosso time para que seus conteúdos sejam mais envolventes e engajadores.",
         },
       ],
+      cards: [
+        {
+          numbers: "01",
+          description: "Posicionamento estratégico e performance",          
+        },
+        {
+          numbers: "02",
+          description: "Identidade Visual no conteúdo",         
+        },
+        {
+          numbers: "03",
+          description: "Contando história através de ganchos",         
+        },
+        {
+          numbers: "04",
+          description: "Técnicas de edição de vídeos, takes e cortes",          
+        },
+        {
+          numbers: "05",
+          description: "Como identificar e metrificar seus resultados",         
+        },
+      ],
       itemsWork: [
         {
           image: "assets/Group544.png",
@@ -50,27 +72,27 @@ createApp({
       tutors: [
         { image: "assets/Group155.png", 
         name: "@nome da influencer aqui",
-        description: "Caso você seja aprovado, é obrigató;"
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem  nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
         { image: "assets/Group156.png", 
         name: "@nome da influencer aqui",
-        description: "Caso você seja aprovado, é obrigató;"
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
         { image: "assets/Group157.png", 
         name: "@nome da influencer aqui",
-        description: "Caso você seja aprovado, é obrigató;"
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
         { image: "assets/Group155.png", 
         name: "@nome da influencer aqui",
-        description: "Caso você seja aprovado, é obrigató;"
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
         { image: "assets/Group155.png", 
         name: "@nome da influencer aqui",
-        description: "Caso você seja aprovado, é obrigató;"
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
         { image: "assets/Group155.png", 
         name: "@nome da influencer aqui",
-        description: "Caso você seja aprovado, é obrigató;"
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
       ],
     }

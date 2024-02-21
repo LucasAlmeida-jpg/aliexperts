@@ -7,20 +7,22 @@
 
 body {
     margin: 0;
-    min-width: 100%;    
+    min-width: 100%;
     overflow-x: hidden;
 }
 
 .btn {
     background-color: var(--secondary);
     color: var(--color-white);
-    border-radius: 40px ;
+    border-radius: 40px;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: var(--color-white);
     color: var(--secondary);
-    border-radius: 40px ;
+    border-radius: 40px;
 }
+
 .navbar {
     padding-top: 30px;
     background-color: var(--primary);
@@ -35,7 +37,7 @@ header .navbar-expand-lg .navbar-collapse a {
     line-height: 16px;
     letter-spacing: -0.5px;
     color: #FFF;
-   
+
 }
 
 header .navbar-expand-lg .navbar-collapse a:first-child {
@@ -90,7 +92,7 @@ section .arrow {
 }
 
 .card:last-child {
-    background-color: var(--primary) ;
+    background-color: var(--primary);
     color: var(--color-white);
     list-style: none;
 }
@@ -99,11 +101,12 @@ section .arrow {
     color: var(--primary);
     margin-bottom: 32px;
 }
+
 .card .img-star {
     margin-right: -122px;
 }
 
-.card .item-number {
+ .item-number {
     background-color: var(--primary);
     color: var(--color-white);
     margin-right: 21px;
@@ -115,7 +118,7 @@ section .arrow {
     margin: var(--margin-per-section);
 }
 
-.mini-card{
+.mini-card {
     background-color: var(--primary);
     width: 100%;
     border-radius: 12px;
@@ -130,17 +133,44 @@ section .arrow {
 }
 
 .carousel-cell {
-margin-right: 40px !important;    
-border-radius:12px;
--webkit-box-shadow: 0px 4px 23px -12px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 4px 23px -12px rgba(0,0,0,0.75);
-box-shadow: 0px 4px 23px -12px rgba(0,0,0,0.75);
-margin-bottom: 30px !important;
-  }
-  
-  .flickity-page-dots{
+    min-height: 650px !important;
+    max-width: 334px;
+    margin-right: 40px !important;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    margin-bottom: 30px !important;
+}
+.flickity-prev-next-button {
+    background-color: var(--primary) !important;
+}
+.spacement-desc {
+    margin: 30px;
+}
+
+.spacement-name {
+    padding: 33px 0px 15px 30px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.flickity-page-dots {
     display: none;
-  }
-
-
-  
+}
+.flickity-button{
+    color: white !important;
+}
+.card-educational {
+    background-color: var(--secondary);
+    margin: 0px 10px;
+    border-radius: 12px;
+    border: none;
+    padding: 45px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
