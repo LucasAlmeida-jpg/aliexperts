@@ -13,7 +13,7 @@ body {
 
 
 .btn-fixed{
-    background-color: var(--secondary);
+    background-color: var(--primary) !important;
     color: var(--color-white);
     border-radius: 40px;
     position: fixed;
@@ -25,10 +25,8 @@ body {
 
 }
 .btn-fixed:hover{
-    background-color: var(--primary) !important;
+    background-color: var(--secondary) !important;
     color: var(--color-white) !important;
- 
-
 }
 
 @keyframes ping {
