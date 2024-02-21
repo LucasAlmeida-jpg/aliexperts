@@ -4,8 +4,11 @@ createApp({
   data() {
     return {
       activeIndex: null,
+      mode: 'login',
       accordionItems: [
-        { title: 'Quanto tempo dura o programa?', content: 'O programa é de seis meses e durará de outubro de 2022 a março de 2023. Ele consistirá em sessões online semanais e em horário comercial.' },
+        { title: 'Quanto tempo dura o programa?', 
+        content: 'O programa é de seis meses e durará de outubro de 2022 a março de 2023. Ele consistirá em sessões online semanais e em horário comercial.' 
+        },
         { title: 'Como posso me inscrever?', content: 'Content for Section 2' },
         { title: 'Como me qualifico?', content: 'Content for Section 3' },
         { title: 'Quantas pessoas serão selecionadas?', content: 'Content for Section 3' },
@@ -47,23 +50,23 @@ createApp({
       cards: [
         {
           numbers: "01",
-          description: "Posicionamento estratégico e performance",          
+          description: "Posicionamento estratégico e performance",
         },
         {
           numbers: "02",
-          description: "Identidade Visual no conteúdo",         
+          description: "Identidade Visual no conteúdo",
         },
         {
           numbers: "03",
-          description: "Contando história através de ganchos",         
+          description: "Contando história através de ganchos",
         },
         {
           numbers: "04",
-          description: "Técnicas de edição de vídeos, takes e cortes",          
+          description: "Técnicas de edição de vídeos, takes e cortes",
         },
         {
           numbers: "05",
-          description: "Como identificar e metrificar seus resultados",         
+          description: "Como identificar e metrificar seus resultados",
         },
       ],
       itemsWork: [
@@ -74,34 +77,40 @@ createApp({
       ],
       itemsMiniCard: [
         { content: 'Você precisará criar 2 reels (1 por quinzena) e 12 stories por mês <br> (2 combos de 3 telas entregues por quinzena).' },
-        { content: 'Inscrever-se de X a X de março, através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação;' },
+        { content: 'Inscrever-se de 26/02 a 25/03 de março, através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação;' },
         { content: 'Ter disponibilidade para participar do programa e entregar conteúdos até março de 2025;' },
         { content: 'Caso você seja aprovado, é obrigatório o opt-in das suas redes sociais para analisarmos os resultados das postagens;' },
       ],
       tutors: [
-        { image: "assets/Group155.png", 
-        name: "@nome da influencer aqui",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem  nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
+        {
+          image: "assets/Group155.png",
+          name: "@nome da influencer aqui",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem  nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
-        { image: "assets/Group156.png", 
-        name: "@nome da influencer aqui",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
+        {
+          image: "assets/Group156.png",
+          name: "@nome da influencer aqui",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
-        { image: "assets/Group157.png", 
-        name: "@nome da influencer aqui",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
+        {
+          image: "assets/Group157.png",
+          name: "@nome da influencer aqui",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
-        { image: "assets/Group155.png", 
-        name: "@nome da influencer aqui",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
+        {
+          image: "assets/Group155.png",
+          name: "@nome da influencer aqui",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
-        { image: "assets/Group155.png", 
-        name: "@nome da influencer aqui",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
+        {
+          image: "assets/Group155.png",
+          name: "@nome da influencer aqui",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
-        { image: "assets/Group155.png", 
-        name: "@nome da influencer aqui",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
+        {
+          image: "assets/Group155.png",
+          name: "@nome da influencer aqui",
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
       ],
     }
@@ -109,7 +118,9 @@ createApp({
   methods: {
     toggleAccordion(index) {
       this.activeIndex = this.activeIndex === index ? null : index;
-    }
+    },
+
+ 
   }
 
 }).mount('#app')
