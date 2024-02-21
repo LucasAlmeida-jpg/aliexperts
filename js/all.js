@@ -3,6 +3,15 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+      activeIndex: null,
+      accordionItems: [
+        { title: 'Quanto tempo dura o programa?', content: 'O programa é de seis meses e durará de outubro de 2022 a março de 2023. Ele consistirá em sessões online semanais e em horário comercial.' },
+        { title: 'Como posso me inscrever?', content: 'Content for Section 2' },
+        { title: 'Como me qualifico?', content: 'Content for Section 3' },
+        { title: 'Quantas pessoas serão selecionadas?', content: 'Content for Section 3' },
+        { title: 'Como os participantes serão selecionados?', content: 'Content for Section 3' },
+        { title: 'E se eu já tiver um site?', content: 'Content for Section 3' }
+      ],
       items: [
         {
           numbers: "01",
@@ -97,5 +106,10 @@ createApp({
       ],
     }
   },
+  methods: {
+    toggleAccordion(index) {
+      this.activeIndex = this.activeIndex === index ? null : index;
+    }
+  }
 
 }).mount('#app')
