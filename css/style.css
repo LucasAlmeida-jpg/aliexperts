@@ -1,0 +1,86 @@
+:root {
+    --primary: #FF2751;
+    --secondary: #FFC82E;
+    --margin-per-section: 90px 0px 69px 0px;
+}
+body {
+    margin: 0;
+    min-width: 100%;    
+    overflow-x: hidden;
+
+}
+.btn {
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 40px ;
+}
+.btn:hover{
+    background-color: white;
+    color: var(--secondary);
+    border-radius: 40px ;
+}
+.navbar {
+    padding-top: 30px;
+    background-color: var(--primary);
+}
+
+header .navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+}
+
+
+header .navbar-expand-lg .navbar-collapse a {
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.5px;
+    color: #FFF;
+}
+
+header .navbar-expand-lg .navbar-collapse a:first-child {
+    margin-right: 24px;
+}
+
+header h2 {
+    font-size: 22px;
+    line-height: 130%;
+    width: 40%;
+}
+
+.people {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px 0px 0px 20px !important;
+}
+.main-section {
+    background-color: var(--primary);
+    padding: 50px 0px 0px 0px;
+}
+
+section h1 {
+    font-size: 64px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+section p {
+    color: white;
+}
+
+section .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section .arrow {
+    width: 16px;
+}
+
+.card {
+    background-color: var(--secondary);
+    margin: 30px 0px;
+    border-radius: 12px;
+    border: none;
+}
