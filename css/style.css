@@ -284,4 +284,12 @@ section .arrow {
    .margin-section{
     margin-top: 60px;
    }
+   .navbar-toggler {
+    background: white !important;
+    border-radius: 50%;
+    padding: 5px;
+   }
+   .navbar {
+    padding: 16px 0px;
+   }
   }
