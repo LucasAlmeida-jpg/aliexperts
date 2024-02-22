@@ -122,32 +122,34 @@ createApp({
       }
     }
   },
+ 
   methods: {
     toggleAccordion(index) {
       this.activeIndex = this.activeIndex === index ? null : index;
     },
-    
+
     submitForm() {
-      console.log('chegnado');
-      // fetch('https://creators.llc/api/auth/login', {
-      //     method: 'POST',
-      //     body: JSON.stringify(this.formData),
-      //     headers: {
-      //         'Content-Type': 'application/json'
-      //     }
-      // })
-      // .then(response => {
-      //     if (!response.ok) {
-      //         throw new Error('Erro ao cadastrar usuário');
-      //     }
-      //     return response.json();
-      // })
-      // .then(data => {
-      //     console.log('Usuário cadastrado com sucesso:', data);
-      // })
-      // .catch(error => {
-      //     console.error('Erro durante o cadastro:', error);
-      // });
+      console.log("Form Data:", this.formData);
+
+      fetch('https://dev.creators.llc/api/v1/users', {
+          method: 'POST',
+          body: JSON.stringify(this.formData),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro ao cadastrar usuário');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Usuário cadastrado com sucesso:', data);
+        })
+        .catch(error => {
+          console.error('Erro durante o cadastro:', error);
+      });
   }
   }
 
