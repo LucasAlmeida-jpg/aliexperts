@@ -10,6 +10,11 @@ body {
     overflow-x: hidden;
 }
 
+.email a{
+    color: black;
+    text-decoration: none;
+}
+
 
 .btn-fixed{
     background-color: var(--primary) !important;
