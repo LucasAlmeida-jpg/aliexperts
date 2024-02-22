@@ -323,11 +323,11 @@ section .arrow {
    }
 
    .card-educational{
-    padding: 1px 56px!important;
+    padding: 1px 36px!important;
     min-height: 127px !important; 
    }
    .card-educational p {
-    font-size: 24px;
+    font-size: 23px;
    }
    .img-star{
     margin-bottom: 20px;
