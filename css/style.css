@@ -314,6 +314,16 @@ section .arrow {
     border-top: 1px solid black;
 }
 
+.slide-enter-active, .slide-leave-active {
+    transition: margin-left 0.4s;
+  }
+  .slide-enter, .slide-leave-to {
+    margin-left: 100%;
+  }
+  .validation-container {
+    overflow: hidden;
+  }
+
 @media only screen and (max-width: 600px) {
    .main-section{
     padding: 10px;

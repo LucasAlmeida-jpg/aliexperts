@@ -121,6 +121,10 @@ createApp({
         nomeSocial: "",
         origin: "aliexperts",
       },
+      
+      success: "Inscrição Realizada com sucesso!",
+      fail: "Usuário já possui cadastro!",
+      showValidation: false,
     }
   },
  
@@ -201,7 +205,14 @@ createApp({
       .catch(error => {
           console.error('Erro durante a criação do usuário:', error);
       });
-    }
-  }
+    },
+    toggleValidation() {
+      this.showValidation = true;
+      setTimeout(() => {
+        this.showValidation = false;
+      }, 1000);
+    },
 
+  }
+  
 }).mount('#app')
