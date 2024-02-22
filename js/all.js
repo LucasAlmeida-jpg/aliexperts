@@ -120,11 +120,11 @@ createApp({
         telefone: "",
         nomeSocial: "",
         origin: "aliexperts",
-      },
-      
+      },      
       success: "Inscrição Realizada com sucesso!",
       fail: "Usuário já possui cadastro!",
       showValidation: false,
+      showFail: false,
     }
   },
  
@@ -178,11 +178,19 @@ createApp({
           return response.json();
       })
       .then(data => {
-        //CRIAR RETORNO DE SECESSO NO FRONT
+        if(data.error) {
+          this.showFail = true;
+          setTimeout(() => {
+            this.showFail = false;
+          }, 1000);
+        } else {
+          this.showValidation = true;
+          setTimeout(() => {
+            this.showValidation = false;
+          }, 1000);      
+        }
       })
-      .catch(error => {
-          console.error('Erro durante a atualização do usuário:', error);
-      });
+     
   },
   
   formCreateUser() {
@@ -200,19 +208,20 @@ createApp({
           return response.json();
       })
       .then(data => {
-        //CRIAR RETORNO DE SECESSO NO FRONT
+        if(data.error) {
+          this.showFail = true;
+          setTimeout(() => {
+            this.showFail = false;
+          }, 1000);
+        } else {
+          this.showValidation = true;
+          setTimeout(() => {
+            this.showValidation = false;
+          }, 1000);      
+        }
       })
-      .catch(error => {
-          console.error('Erro durante a criação do usuário:', error);
-      });
+    
     },
-    toggleValidation() {
-      this.showValidation = true;
-      setTimeout(() => {
-        this.showValidation = false;
-      }, 1000);
-    },
-
   }
   
 }).mount('#app')
