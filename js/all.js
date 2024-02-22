@@ -7,7 +7,7 @@ createApp({
       mode: 'login',
       accordionItems: [
         { title: 'Quanto tempo dura o programa?', 
-        content: 'O programa é de seis meses e durará de outubro de 2022 a março de 2023. Ele consistirá em sessões online semanais e em horário comercial.' 
+        content: 'content...' 
         },
         { title: 'Quantos produtos serão enviados? Precisa devolver?', content: 'Content...' },
         { title: 'Como funciona o comissionamento?', content: 'Content...' },
@@ -58,11 +58,11 @@ createApp({
         },
         {
           numbers: "02",
-          description: "Identidade visual no conteúdo",
+          description: "Identidade visual <br> no conteúdo",
         },
         {
           numbers: "03",
-          description: "Contando história através de ganchos",
+          description: "Contando história <br> através  de ganchos",
         },
         {
           numbers: "04",

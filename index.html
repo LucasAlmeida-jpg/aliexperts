@@ -47,7 +47,7 @@
                                 <a class="nav-link" href="#programacao">Programação</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#faq" target="_blank">FAQ</a>
+                                <a class="nav-link" href="#faq">FAQ</a>
                             </li>
                             <li class="nav-item">
                                 <button class="btn btn-nav" data-bs-toggle="modal" data-bs-target="#exampleModal">Inscreva-se</button>
@@ -135,13 +135,13 @@
                     <div v-for="(item, index) in cards" :key="index" class="col-md card-educational">
                         <div class="text-center alignment">
                             <span class="item-number-card">{{item.numbers}}</span>
-                            <p class="mt-4">{{item.description}}</p>
+                            <p class="mt-5" v-html="item.description"></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container" id="faq">
-                <h2 class="margin-section">Como participar do programa AliExperts</h2>
+            <div class="container" id="#faq">
+                <h2 class="margin-section">FAQ</h2>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

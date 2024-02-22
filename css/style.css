@@ -262,7 +262,7 @@ section .arrow {
     margin: 0px 10px;
     border-radius: 12px;
     border: none;
-    padding: 45px;
+    padding: 23px;
     min-height: 300px;
     display: flex;
     align-items: center;
