@@ -4,7 +4,6 @@ createApp({
   data() {
     return {
       activeIndex: null,
-      mode: 'login',
       accordionItems: [
         { title: 'Quantos produtos serão enviados? Precisa devolver?', content: 'Content...' },
         { title: 'Como funciona o comissionamento?', content: 'Content...' },
@@ -114,14 +113,42 @@ createApp({
           description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate nulla voluptatem natus error, unde obcaecati ad eveniet id blanditiis pariatur nostrum tenetur libero inventore consequatur aut necessitatibus assumenda fugit!"
         },
       ],
+      formData: {
+        nome: "",
+        email: "",
+        password: "",
+        telefone: "",
+        nomeSocial: "",
+      }
     }
   },
   methods: {
     toggleAccordion(index) {
       this.activeIndex = this.activeIndex === index ? null : index;
     },
-
- 
+    
+    submitForm() {
+      console.log('chegnado');
+      // fetch('https://creators.llc/api/auth/login', {
+      //     method: 'POST',
+      //     body: JSON.stringify(this.formData),
+      //     headers: {
+      //         'Content-Type': 'application/json'
+      //     }
+      // })
+      // .then(response => {
+      //     if (!response.ok) {
+      //         throw new Error('Erro ao cadastrar usuário');
+      //     }
+      //     return response.json();
+      // })
+      // .then(data => {
+      //     console.log('Usuário cadastrado com sucesso:', data);
+      // })
+      // .catch(error => {
+      //     console.error('Erro durante o cadastro:', error);
+      // });
+  }
   }
 
 }).mount('#app')

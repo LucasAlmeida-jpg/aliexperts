@@ -192,32 +192,34 @@
               <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="assets/black.svg" alt=""></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" >
+                <form @submit.prevent="submitForm()">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"  v-model="formData.email" >
+                    <label for="floatingInput">Email</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="formData.password" >
+                    <label for="floatingPassword">Senha</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Nome">
-                    <label for="floatingName">Nome</label>
+                    <input type="text" class="form-control" id="floatingName" placeholder="Nome" v-model="formData.nome" >
+                    <label for="floatingName" >Nome</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Telefone com DDD">
+                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Telefone com DDD" v-model="formData.telefone" >
                     <label for="floatingPhone">Telefone com DDD</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingSocialName" placeholder="Nome do canal/nome fantasia
-                    ">
+                    "  v-model="formData.nomeSocial" >
                     <label for="floatingSocialName">Nome do canal/nome fantasia</label>
                   </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-              <button type="button" class="btn">Cadastrar</button>
-            </div>
+                  <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn">Cadastrar</button>
+                  </div>
+                </form>
+            </div>            
           </div>
         </div>
       </div>
