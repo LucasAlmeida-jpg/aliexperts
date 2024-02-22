@@ -6,9 +6,6 @@ createApp({
       activeIndex: null,
       mode: 'login',
       accordionItems: [
-        { title: 'Quanto tempo dura o programa?', 
-        content: 'content...' 
-        },
         { title: 'Quantos produtos serão enviados? Precisa devolver?', content: 'Content...' },
         { title: 'Como funciona o comissionamento?', content: 'Content...' },
         { title: 'Qual valor da porcentagem e do bônus?', content: 'Content...' },
