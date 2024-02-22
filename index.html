@@ -22,7 +22,7 @@
         <button class="btn btn-fixed" data-bs-toggle="modal" data-bs-target="#exampleModal">Inscreva-se <span><img class="arrow" src="assets/Arrow 1.png" alt=""></span></button>  
         <header>
             <nav class="navbar navbar-expand-lg menu">
-                <div class="container d-flex justify-content-between">
+                <div class="container">
                     <a class="navbar-brand" href="https://creators.llc/" target="_blank">
                         <img class="d-none d-md-block" src="./assets/white.svg" alt="creators logo">
                         <img class="d-md-none d-block" src="./assets/white.svg" alt="creators logo">
@@ -33,21 +33,21 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarMenu">
-                        <ul class="navbar-nav col-xl-8">
+                        <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Como Funciona</a>
+                                <a class="nav-link" href="#como-funciona">Como Funciona</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Como participar</a>
+                                <a class="nav-link" href="#como-participar">Como participar</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#">Mentores</a>
+                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#programacao">Programação</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Programação</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" target="_blank">FAQ</a>
+                                <a class="nav-link" href="#faq" target="_blank">FAQ</a>
                             </li>
                             <li class="nav-item">
                                 <button class="btn btn-nav" data-bs-toggle="modal" data-bs-target="#exampleModal">Inscreva-se</button>
@@ -78,20 +78,20 @@
             </div>
         </section>
         <main>
-            <div class="container">
+            <div class="container" id="como-funciona">
                 <h2 class="margin-section">Como funciona o AliExperts</h2>
                 <div class="card" v-for="(item, index) in items" :key="index">
                     <div class="row d-flex align-items-center">
                         <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img
                                 :src="item.image" alt=""></div>
                         <div class="col-md-6 info">
-                            <h2 class="item-title"><span class="item-number">{{item.numbers}}</span>{{ item.title }}
+                            <h2 class="item-title"><span class="me-3"><img :src="item.numbers" alt=""></span>{{ item.title }}
                             </h2>
                             <p class="item-description" v-html="item.description"></p>
                         </div>
                     </div>
                 </div>
-                <h2 class="margin-section">Como participar do programa AliExperts</h2>
+                <h2 class="margin-section" id="como-participar">Como participar do programa AliExperts</h2>
                 <div class="card" v-for="(item, index) in itemsWork" :key="index">
                     <div class="row d-flex align-items-center">
                         <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img
@@ -112,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <!-- <div class="container">
                 <h2 class="margin-section">Aprenda com especialistas</h2>
                 <div class="carousel" data-flickity='{ "wrapAround": true }'>
                     <div class="carousel-cell" v-for="(tutor, index) in tutors" :key="index">
@@ -128,8 +128,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
+            </div> -->
+            <div class="container" id="programacao">
                 <h2 class="margin-section">Conteúdo educacional do AliExperts</h2>
                 <div class="row d-flex justify-content-center card-part">
                     <div v-for="(item, index) in cards" :key="index" class="col-md card-educational">
@@ -140,7 +140,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" id="faq">
                 <h2 class="margin-section">Como participar do programa AliExperts</h2>
                 <div class="container">
                     <div class="row">
@@ -169,11 +169,11 @@
                         </div>
                         <div>
                             <ul class="list-unstyled d-flex gap-4">
-                                <li><a href="#">Como funciona</a></li>
-                                <li><a href="#">Como participar</a></li>
-                                <li><a href="#">Mentores</a></li>
-                                <li><a href="#">Programação</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#como-funciona">Como funciona</a></li>
+                                <li><a href="#como-participar">Como participar</a></li>
+                                <!-- <li><a href="#">Mentores</a></li> -->
+                                <li><a href="#programacao">Programação</a></li>
+                                <li><a href="#faq">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
