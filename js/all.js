@@ -119,7 +119,8 @@ createApp({
         password: "",
         telefone: "",
         nomeSocial: "",
-      }
+        origin: "aliexperts",
+      },
     }
   },
  
@@ -128,29 +129,79 @@ createApp({
       this.activeIndex = this.activeIndex === index ? null : index;
     },
 
-    submitForm() {
-      console.log("Form Data:", this.formData);
-
+    formLogin() {
+      fetch('https://dev.creators.llc/api/auth/login', {
+          method: 'POST',
+          body: JSON.stringify(this.formData),
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      })
+      .then(response => {
+          if (!response.ok) {
+              if (response.status === 401) {
+                  this.formCreateUser();
+              } else {
+                  throw new Error('Erro ao fazer login');
+              }
+          } else {
+              return response.json();
+          }
+      })
+      .then(data => {
+        if (data) {
+          this.formUpdateUser(data.data.access_token, data.data.user.id);
+        }
+      })
+      .catch(error => {
+        console.error('Erro durante o login:', error);
+      });
+  },
+  
+  formUpdateUser(token, id) {
+      fetch('https://dev.creators.llc/api/v1/users/'+id, {
+          method: 'PUT',
+          body: JSON.stringify(this.formData),
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+          }
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Erro ao atualizar usuário');
+          }
+          return response.json();
+      })
+      .then(data => {
+        //CRIAR RETORNO DE SECESSO NO FRONT
+      })
+      .catch(error => {
+          console.error('Erro durante a atualização do usuário:', error);
+      });
+  },
+  
+  formCreateUser() {
       fetch('https://dev.creators.llc/api/v1/users', {
           method: 'POST',
           body: JSON.stringify(this.formData),
           headers: {
-            'Content-Type': 'application/json'
+              'Content-Type': 'application/json'
           }
-        })
-        .then(response => {
+      })
+      .then(response => {
           if (!response.ok) {
-            throw new Error('Erro ao cadastrar usuário');
+              throw new Error('Erro ao criar usuário');
           }
           return response.json();
-        })
-        .then(data => {
-          console.log('Usuário cadastrado com sucesso:', data);
-        })
-        .catch(error => {
-          console.error('Erro durante o cadastro:', error);
+      })
+      .then(data => {
+        //CRIAR RETORNO DE SECESSO NO FRONT
+      })
+      .catch(error => {
+          console.error('Erro durante a criação do usuário:', error);
       });
-  }
+    }
   }
 
 }).mount('#app')

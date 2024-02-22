@@ -141,7 +141,7 @@
                 </div>
             </div>
             <div class="container" id="faq">
-                <h2 class="margin-section"  @click="submitForm">FAQ</h2>
+                <h2 class="margin-section">FAQ</h2>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -192,7 +192,7 @@
               <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="assets/black.svg" alt=""></h1>
             </div>
             <div class="modal-body" >              
-                <form @submit.prevent="submitForm">
+                <form @submit.prevent="formLogin">
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"  v-model="formData.email" >
                         <label for="floatingInput">Email</label>
