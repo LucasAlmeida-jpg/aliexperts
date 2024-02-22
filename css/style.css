@@ -1,42 +1,42 @@
 
 @font-face {
     font-family: 'TT Norms Pro Trial Black';
-    src: url('./fonts/ProTrial/TTNormsProTrialBlack.ttf') format('truetype');
+    src: url('../fonts/ProTrial/TTNormsProTrialBlack.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'TT Norms Pro Trial Bold';
-    src: url('./fonts/ProTrial/TTNormsProTrialBold.ttf') format('truetype');
+    src: url('../fonts/ProTrial/TTNormsProTrialBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'TT Norms Pro Trial Medium';
-    src: url('./fonts/ProTrial/TTNormsProTrialMedium.ttf') format('truetype');
+    src: url('../fonts/ProTrial/TTNormsProTrialMedium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'TT Norms Pro Trial Normal';
-    src: url('./fonts/ProTrial/TTNormsProTrialNormal.ttf') format('truetype');
+    src: url('../fonts/ProTrial/TTNormsProTrialNormal.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'AliExpress Sans';
-    src: url('./fonts/Sans/AliExpressSans.otf') format('opentype');
+    src: url('../fonts/Sans/AliExpressSans.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Ali Express Sans Regular';
-    src: url('./fonts/Sans/AliExpressSansRegular.otf') format('opentype');
+    src: url('../fonts/Sans/AliExpressSansRegular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
