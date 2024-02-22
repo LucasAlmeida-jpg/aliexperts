@@ -1,3 +1,47 @@
+
+@font-face {
+    font-family: 'TT Norms Pro Trial Black';
+    src: url('./fonts/ProTrial/TTNormsProTrialBlack.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Norms Pro Trial Bold';
+    src: url('./fonts/ProTrial/TTNormsProTrialBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Norms Pro Trial Medium';
+    src: url('./fonts/ProTrial/TTNormsProTrialMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Norms Pro Trial Normal';
+    src: url('./fonts/ProTrial/TTNormsProTrialNormal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AliExpress Sans';
+    src: url('./fonts/Sans/AliExpressSans.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ali Express Sans Regular';
+    src: url('./fonts/Sans/AliExpressSansRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 :root {
     --primary: #FF2751;
     --secondary: #FFC82E;
@@ -8,6 +52,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
+
 }
 
 .email a{
@@ -98,10 +143,12 @@ section h1 {
     color: var(--color-white);
     font-weight: 600;
     letter-spacing: 2px;
+    font-family: 'AliExpress Sans', sans-serif;
 }
 
 section p {
     color: var(--color-white);
+    /* font-family: 'TT Norms Pro Trial Normal', sans-serif; */
 }
 
 section .info {
@@ -131,6 +178,7 @@ section .arrow {
 .card .item-title {
     color: var(--primary);
     margin-bottom: 32px;
+    font-family: 'TT Norms Pro Trial Normal', sans-serif;
 }
 
 .card .img-star {
@@ -144,6 +192,9 @@ section .arrow {
     padding: 15px;
     border-radius: 50%;
 }
+.item-description, p, .btn, li, .accordion-header, .accordion-content {    
+    font-family: 'TT Norms Pro Trial Normal', sans-serif;
+}
 .item-number-card {
     background-color: var(--primary);
     color: var(--color-white);
@@ -153,6 +204,8 @@ section .arrow {
 
 .margin-section {
     margin: var(--margin-per-section);
+    font-family: 'TT Norms Pro Trial Normal', sans-serif;
+    
 }
 
 .alignment{
@@ -272,6 +325,9 @@ section .arrow {
    .card-educational{
     padding: 1px 56px!important;
     min-height: 127px !important; 
+   }
+   .card-educational p {
+    font-size: 24px;
    }
    .img-star{
     margin-bottom: 20px;
