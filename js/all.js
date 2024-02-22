@@ -9,11 +9,15 @@ createApp({
         { title: 'Quanto tempo dura o programa?', 
         content: 'O programa é de seis meses e durará de outubro de 2022 a março de 2023. Ele consistirá em sessões online semanais e em horário comercial.' 
         },
-        { title: 'Como posso me inscrever?', content: 'Content for Section 2' },
-        { title: 'Como me qualifico?', content: 'Content for Section 3' },
-        { title: 'Quantas pessoas serão selecionadas?', content: 'Content for Section 3' },
-        { title: 'Como os participantes serão selecionados?', content: 'Content for Section 3' },
-        { title: 'E se eu já tiver um site?', content: 'Content for Section 3' }
+        { title: 'Quantos produtos serão enviados? Precisa devolver?', content: 'Content...' },
+        { title: 'Como funciona o comissionamento?', content: 'Content...' },
+        { title: 'Qual valor da porcentagem e do bônus?', content: 'Content...' },
+        { title: 'Qual o critério de avaliação dos conteúdos para a bonificação?', content: 'Content...' },
+        { title: 'Haverá um cronograma de postagem pré-definido?', content: 'Content...' },
+        { title: 'A participação nas aulas é obrigatória? Será calculada a frequência?', content: 'Content...' },
+        { title: 'O pagamento está vinculado à performance apenas ou tem um valor fixo?', content: 'Content...' },
+        { title: 'Vou precisar ter exclusividade com a AliExpress ou posso indicar produtos da concorrência?', content: 'Content...' },
+        { title: 'Qual a duração do projeto?', content: 'Content...' },
       ],
       items: [
         {
@@ -72,7 +76,7 @@ createApp({
       itemsWork: [
         {
           image: "assets/Group544.png",
-          description: "Ser um criador de conteúdo com pelo menos 5 mil seguidores no Instagram, com postagens regulares e de uma das verticais abaixo: <br><br> <li><strong>Moda e Beleza</strong></li> <li><strong>Tecnologia e Games</strong></li> <li><strong>Esporte, Fitness</strong></li> <li><strong>Casa e Decoração</strong></li> "
+          description: "Ser um criador de conteúdo com pelo menos 5 mil seguidores no Instagram, com postagens regulares e de uma das verticais abaixo: <br><br> <li><strong>Moda e Beleza</strong></li> <li><strong>Tecnologia e Games</strong></li> <li><strong>Esporte e Fitness</strong></li> <li><strong>Casa e Decoração</strong></li> "
         }
       ],
       itemsMiniCard: [
