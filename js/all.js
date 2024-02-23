@@ -122,6 +122,11 @@ createApp({
         perfil: "",
         agent_email: "",
         origin: "aliexperts",
+        specialities: [],
+        network: [
+          { socialMedia: '', link: '' }
+        ]
+
       },      
       success: "Inscrição Realizada com sucesso!",
       fail: "Usuário já possui cadastro!",
@@ -133,6 +138,16 @@ createApp({
       showAllFields: true,
       alreadyCreator: false,
       
+      vertical: [
+        { name: "Casa", id: 306 },
+        { name: "Decoração", id: 307 },
+        { name: "Esporte", id: 305 },
+        { name: "Fitness", id: 264 },
+        { name: "Games", id: 362 },
+        { name: "Moda", id: 323 },
+        { name: "Tecnologia", id: 368 },
+        { name: "Beleza", id: 263 },
+      ],
     }
   },
  
@@ -207,6 +222,7 @@ createApp({
           return response.json();
       })
         .then(data => {
+          console.log(this.formData);
         if(data.error) {
           this.showFailError()
         } else {
@@ -233,6 +249,50 @@ createApp({
         this.showValidation = false;
       }, 1000);  
     },
-  }
+    addSocialMedia() {
+      if (this.formData.network.length < 2) {
+        this.formData.network.push({ socialMedia: '', link: '' });
+      }
+    },
+    removeSocialMedia() {
+      if (this.formData.network.length > 1) {
+        this.formData.network.pop();
+      }
+    },
+    getBaseLink(socialMedia) {
+      if (socialMedia === 'Behance') {
+        return 'https://www.behance.net/';
+      } else if (socialMedia === 'Facebook') {
+        return 'https://www.facebook.com/';
+      } else if (socialMedia === 'Instagram') {
+        return 'https://www.instagram.com/';
+      } else if (socialMedia === 'Linkedin') {
+        return 'https://www.linkedin.com/in/';
+      } else if (socialMedia === 'Youtube') {
+        return 'https://www.youtube.com/';
+      } else if (socialMedia === 'TikTok') {
+        return 'https://www.tiktok.com/';
+      } else if (socialMedia === 'Twitch') {
+        return 'https://www.twitch.tv/';
+      } else if (socialMedia === 'Pinterest') {
+        return 'https://www.pinterest.com/';
+      } else if (socialMedia === 'Site Pessoal') {
+        return 'https://';
+      } else if (socialMedia === 'X') {
+        return 'https://twitter.com/';
+      } else if (socialMedia === 'Vimeo') {
+        return 'https://vimeo.com/';
+      }
+      return '';
+    },
+  },
+
+  computed: {
+    selectedVerticals() {
+      const selectedIds = this.formData.specialities.map(Number);
+      return this.vertical.filter((v) => selectedIds.includes(v.id));
+    },
+  },
+
   
 }).mount('#app')
