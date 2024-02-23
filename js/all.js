@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       activeIndex: null,
+      creatorsForm: false,
       accordionItems: [
         { title: 'Quantos produtos serão enviados? Precisa devolver?', content: 'Content...' },
         { title: 'Como funciona o comissionamento?', content: 'Content...' },
@@ -118,13 +119,18 @@ createApp({
         email: "",
         password: "",
         telefone: "",
-        nomeSocial: "",
+        perfil: "",
+        agent_email: "",
         origin: "aliexperts",
       },      
       success: "Inscrição Realizada com sucesso!",
       fail: "Usuário já possui cadastro!",
       showValidation: false,
       showFail: false,
+      selectedSocialMedia: '',
+      socialMediaInput: '',
+      showAllFields: true,
+      alreadyCreator: false,
     }
   },
  
@@ -207,7 +213,7 @@ createApp({
           }
           return response.json();
       })
-      .then(data => {
+        .then(data => {
         if(data.error) {
           this.showFail = true;
           setTimeout(() => {
@@ -222,6 +228,9 @@ createApp({
       })
     
     },
+    toggleFieldsVisibility() {
+      this.showAllFields = !this.showAllFields;
+  }
   }
   
 }).mount('#app')

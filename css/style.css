@@ -195,6 +195,12 @@ section .arrow {
 .item-description, p, .btn, li, .accordion-header, .accordion-content {    
     font-family: 'TT Norms Pro Trial Normal', sans-serif;
 }
+.link {
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    font-size: 12px;
+}
 .item-number-card {
     background-color: var(--primary);
     color: var(--color-white);
