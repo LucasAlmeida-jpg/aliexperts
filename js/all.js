@@ -36,7 +36,7 @@ createApp({
           description: "Faça parte de uma comunidade de criadores assim como você, troque ideias e atinja o máximo do potencial das suas redes sociais.",
         },
         {
-          numbers: "assets/5.svg",
+          numbers: "assets/44.svg",
           title: "Desafios",
           image: "assets/Group520.png",
           description: "Lançaremos desafios de conteúdo ao longo dos meses para que você consiga soltar sua imaginação e potencial criativo nos seus conteúdos.",
