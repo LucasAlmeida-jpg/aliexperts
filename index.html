@@ -262,6 +262,11 @@
                             <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
                         </div>                                             
                     </div>
+                    <div v-if="showValidation" class="validation-container d-flex justify-content-center">
+                        <span
+                            class="validation d-inline-flex my-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 justify-content-center">
+                            {{ success }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -353,14 +358,7 @@
                             data-bs-toggle="modal">Voltar</button>
                         <button class="btn" @click="formCreateUser">Cadastrar</button>
                     </div>
-                    <div class="card-body">
-                        <div v-if="showValidation" class="validation-container d-flex justify-content-center">
-                            <span
-                                class="validation d-inline-flex my-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 justify-content-center">{{
-                                success }}</span>
-                        </div>
-                    </div>
-
+                                       
                     <div class="card-body validation-container d-flex justify-content-center" v-if="showFail">
                         <div class="validation-container d-flex justify-content-center">
                             <span
@@ -368,7 +366,7 @@
                                 {{ fail }}
                             </span>
                         </div>
-                    </div>
+                    </div>                     
                 </div>
             </div>
         </div>

@@ -205,8 +205,8 @@ createApp({
       console.log(data, 'data');
         if(data.error) {
             this.showFailError();
-        } else {
-            this.showValidationSuccess();
+        } else if(!data.error) {
+          this.showValidationSuccess();
         }
     })
     .catch(error => {
