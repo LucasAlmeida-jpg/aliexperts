@@ -200,7 +200,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="modal-body">
-                            <form @submit.prevent="formLogin">
+                            <form>
                                 <div class="form-floating mb-2">
                                     <input type="email" class="form-control" id="floatingInput"
                                         placeholder="name@example.com" v-model="formData.email">
@@ -211,6 +211,7 @@
                                         placeholder="Password" v-model="formData.password">
                                     <label for="floatingPassword">Senha</label>
                                 </div>
+                                <p v-if="invalid">Suas credenciais não estão corretas. Por favor, verifique seu e-mail e senha e tente novamente.</p>
                                 <div v-if="showAllFields">
                                     <div class="form-floating mb-2">
                                         <input type="text" class="form-control" id="floatingName" placeholder="Nome"
@@ -233,12 +234,18 @@
                     </div>
                     
                     <div class="modal-footer">
-                        <button v-if="showAllFields" class="btn" @click="toggleFieldsVisibility">Já sou Creator</button>
-                        <button v-else class="btn" @click="toggleFieldsVisibility">Voltar</button>
-                        
-                        <button v-if="showAllFields" class="btn bg-dark" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Próximo</button>
-                        <button v-else class="btn bg-dark" @click="login">Logar</button>
+                        <div>
+                            <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já sou Creator!</button>
+                            
+                            <button v-else class="btn bg-dark me-2" @click="toggleFieldsVisibility">Voltar</button>
+                        </div>
+                        <div class="flex-grow-1"></div>
+                        <div>
+                            <button v-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Próximo</button>
+                            <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -252,13 +259,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form @submit.prevent="formLogin">
+                        <form>
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatingAgente"
                                     placeholder="Nome do canal/nome fantasia" v-model="formData.agent_email">
                                 <label for="floatingAgente">E-mail secundário (agente, empresário, contador ou
                                     financeiro)</label>
                             </div>
+                            
                             <div class="form-floating mb-2">
                                 <select v-model="selectedSocialMedia" class="form-select form-select-sm mb-3"
                                     aria-label=".form-select-sm example">
@@ -284,10 +292,11 @@
                             <input type="checkbox" class="mt-4"> Li e concordo com os <span> <a href="https://creators.llc/termos/" target="_blank">Termos de uso</a></span>
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Voltar</button>
-                        <button class="btn bg-dark" type="submit">Cadastrar</button>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button class="btn bg-dark" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Voltar</button>
+                        <button class="btn" @click="formCreateUser">Cadastrar</button>
                     </div>
+                    
                 </div>
             </div>
         </div>

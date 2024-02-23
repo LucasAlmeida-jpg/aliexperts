@@ -125,12 +125,14 @@ createApp({
       },      
       success: "Inscrição Realizada com sucesso!",
       fail: "Usuário já possui cadastro!",
+      invalid: false,
       showValidation: false,
       showFail: false,
       selectedSocialMedia: '',
       socialMediaInput: '',
       showAllFields: true,
       alreadyCreator: false,
+      
     }
   },
  
@@ -150,23 +152,20 @@ createApp({
       .then(response => {
           if (!response.ok) {
               if (response.status === 401) {
-                  this.formCreateUser();
-              } else {
-                  throw new Error('Erro ao fazer login');
+                this.invalid = true;
               }
           } else {
-              return response.json();
+            this.invalid = false;
+            return response.json();
           }
       })
       .then(data => {
         if (data) {
           this.formUpdateUser(data.data.access_token, data.data.user.id);
         }
-      })
-      .catch(error => {
-        console.error('Erro durante o login:', error);
       });
   },
+
   
   formUpdateUser(token, id) {
       fetch('https://dev.creators.llc/api/v1/users/'+id, {
@@ -185,20 +184,14 @@ createApp({
       })
       .then(data => {
         if(data.error) {
-          this.showFail = true;
-          setTimeout(() => {
-            this.showFail = false;
-          }, 1000);
+          this.showFailError();
         } else {
-          this.showValidation = true;
-          setTimeout(() => {
-            this.showValidation = false;
-          }, 1000);      
+          this.showValidationSuccess();
         }
       })
      
   },
-  
+
   formCreateUser() {
       fetch('https://dev.creators.llc/api/v1/users', {
           method: 'POST',
@@ -215,22 +208,31 @@ createApp({
       })
         .then(data => {
         if(data.error) {
-          this.showFail = true;
-          setTimeout(() => {
-            this.showFail = false;
-          }, 1000);
+          this.showFailError()
         } else {
-          this.showValidation = true;
-          setTimeout(() => {
-            this.showValidation = false;
-          }, 1000);      
+          his.formUpdateUser(data.data.access_token, data.data.user.id);
         }
       })
     
     },
+
     toggleFieldsVisibility() {
+      this.invalid = false;
       this.showAllFields = !this.showAllFields;
-  }
+    },
+
+    showFailError(){
+      this.showFail = true;
+      setTimeout(() => {
+        this.showFail = false;
+      }, 1000);
+    },
+    showValidationSuccess(){
+      this.showValidation = true;
+      setTimeout(() => {
+        this.showValidation = false;
+      }, 1000);  
+    },
   }
   
 }).mount('#app')
