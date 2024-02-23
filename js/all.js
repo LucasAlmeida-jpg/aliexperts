@@ -139,6 +139,7 @@ createApp({
       alreadyCreator: false,
       
       vertical: [
+        { name: "Beleza", id: 263 },
         { name: "Casa", id: 306 },
         { name: "Decoração", id: 307 },
         { name: "Esporte", id: 305 },
@@ -146,8 +147,7 @@ createApp({
         { name: "Games", id: 362 },
         { name: "Moda", id: 323 },
         { name: "Tecnologia", id: 368 },
-        { name: "Beleza", id: 263 },
-      ],
+    ],    
     }
   },
  
@@ -248,14 +248,14 @@ createApp({
       this.showFail = true;
       setTimeout(() => {
         this.showFail = false;
-      }, 1000);
+      }, 2000);
     },
 
     showValidationSuccess(){
       this.showValidation = true;
       setTimeout(() => {
         this.showValidation = false;
-      }, 1000);  
+      }, 2000);  
     },
 
     addSocialMedia() {

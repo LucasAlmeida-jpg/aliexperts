@@ -200,6 +200,7 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <!-- <span class="text-danger" v-if="!showAllFields && (formData.name === '' || formData.email === '' || formData.telefone === '' || formData.password === '' || formData.perfil === '')">Preencha todos os campos *</span> -->
                             <div class="form-floating mb-2">
                                 <input type="email" class="form-control" id="floatingInput"
                                     placeholder="name@example.com" v-model="formData.email">
@@ -248,10 +249,18 @@
                         </div>
                         <div class="flex-grow-1"></div>
                         <div>
-                            <button v-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2"
-                                data-bs-toggle="modal">Próximo</button>
+                            <div v-if="showAllFields && (formData.name === '' || formData.email === '' || formData.telefone === '' || formData.password === '' || formData.perfil === '')">
+                                <button class="btn me-2" disabled>Próximo</button>
+                            </div>
+                            <div v-else-if="!showAllFields && (formData.email === '' || formData.password === '')"> 
+                                <button class="btn me-2" disabled>Cadastrar</button>
+                            </div>
+                            <div v-else-if="!showAllFields && (formData.email !== '' && formData.password!== '')"> 
+                                <button class="btn me-2" @click="formLogin">Cadastrar</button>
+                            </div>
+                            <button v-else-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Próximo</button>
                             <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
-                        </div>
+                        </div>                                             
                     </div>
                 </div>
             </div>
@@ -271,7 +280,7 @@
                             <div class="row border mb-3">
                                 <div class="col-md-6">
                                     <div class="form-check" v-for="v in vertical.slice(0, 4)" :key="v.id">
-                                        <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name"
+                                        <input  type="checkbox" class="form-check-input" :id="'checkbox-' + v.name"
                                             :value="v.id" v-model="formData.specialities" />
                                         <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
                                     </div>
