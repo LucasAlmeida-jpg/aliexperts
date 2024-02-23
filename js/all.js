@@ -123,13 +123,13 @@ createApp({
         agent_email: "",
         origin: "aliexperts",
         specialities: [],
-        network: [
+        validacaoRedes: [
           { socialMedia: '', link: '' }
         ]
-
       },      
       success: "Inscrição Realizada com sucesso!",
       fail: "Usuário já possui cadastro!",
+      credentials: "Suas credenciais não estão corretas. Por favor, verifique seu e-mail e senha e tente novamente.",
       invalid: false,
       showValidation: false,
       showFail: false,
@@ -183,29 +183,36 @@ createApp({
 
   
   formUpdateUser(token, id) {
-      fetch('https://dev.creators.llc/api/v1/users/'+id, {
-          method: 'PUT',
-          body: JSON.stringify(this.formData),
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-          }
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Erro ao atualizar usuário');
-          }
-          return response.json();
-      })
-      .then(data => {
-        if(data.error) {
-          this.showFailError();
-        } else {
-          this.showValidationSuccess();
+    this.formData.validacaoRedes.forEach(element => {
+      this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
+  });
+  console.log( this.formData, 'aqio');
+    fetch('https://dev.creators.llc/api/v1/users/'+id, {
+        method: 'PUT',
+        body: JSON.stringify(this.formData),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
         }
-      })
-     
-  },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao atualizar usuário');
+        }
+        return response.json(); 
+    })
+    .then(data => {
+      console.log(data, 'data');
+        if(data.error) {
+            this.showFailError();
+        } else {
+            this.showValidationSuccess();
+        }
+    })
+    .catch(error => {
+        console.error('Erro na solicitação:', error);
+    });
+},
 
   formCreateUser() {
       fetch('https://dev.creators.llc/api/v1/users', {
@@ -226,7 +233,7 @@ createApp({
         if(data.error) {
           this.showFailError()
         } else {
-          his.formUpdateUser(data.data.access_token, data.data.user.id);
+          this.formUpdateUser(data.data.access_token, data.data.user.id);
         }
       })
     
@@ -243,44 +250,44 @@ createApp({
         this.showFail = false;
       }, 1000);
     },
+
     showValidationSuccess(){
       this.showValidation = true;
       setTimeout(() => {
         this.showValidation = false;
       }, 1000);  
     },
+
     addSocialMedia() {
-      if (this.formData.network.length < 2) {
-        this.formData.network.push({ socialMedia: '', link: '' });
+      if (this.formData.validacaoRedes.length < 2) {
+        this.formData.validacaoRedes.push({ socialMedia: '', link: '' });
       }
     },
     removeSocialMedia() {
-      if (this.formData.network.length > 1) {
-        this.formData.network.pop();
+      if (this.formData.validacaoRedes.length > 1) {
+        this.formData.validacaoRedes.pop();
       }
     },
     getBaseLink(socialMedia) {
-      if (socialMedia === 'Behance') {
+      if (socialMedia === 'behance') {
         return 'https://www.behance.net/';
-      } else if (socialMedia === 'Facebook') {
+      } else if (socialMedia === 'facebook') {
         return 'https://www.facebook.com/';
-      } else if (socialMedia === 'Instagram') {
+      } else if (socialMedia === 'instagram') {
         return 'https://www.instagram.com/';
-      } else if (socialMedia === 'Linkedin') {
+      } else if (socialMedia === 'linkedin') {
         return 'https://www.linkedin.com/in/';
-      } else if (socialMedia === 'Youtube') {
+      } else if (socialMedia === 'youtube') {
         return 'https://www.youtube.com/';
-      } else if (socialMedia === 'TikTok') {
+      } else if (socialMedia === 'tikTok') {
         return 'https://www.tiktok.com/';
-      } else if (socialMedia === 'Twitch') {
+      } else if (socialMedia === 'twitch') {
         return 'https://www.twitch.tv/';
-      } else if (socialMedia === 'Pinterest') {
+      } else if (socialMedia === 'pinterest') {
         return 'https://www.pinterest.com/';
-      } else if (socialMedia === 'Site Pessoal') {
-        return 'https://';
-      } else if (socialMedia === 'X') {
+      } else if (socialMedia === 'twitter') {
         return 'https://twitter.com/';
-      } else if (socialMedia === 'Vimeo') {
+      } else if (socialMedia === 'vimeo') {
         return 'https://vimeo.com/';
       }
       return '';
