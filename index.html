@@ -189,17 +189,28 @@
             </div>
         </footer>
 
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-            tabindex="-1">
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel"><img src="assets/black.svg" alt="">
-                        </h1>
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel"><img src="assets/black.svg" alt=""></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>                           
+                        <div v-if="isLoading" class="text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Carregando...</span>
+                            </div>
+                            <p class="mt-2">Aguarde enquanto processamos sua inscrição...</p>
+                        </div>
+                        <div v-if="error" class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                        <div v-if="success" class="alert alert-success" role="alert">
+                            {{ success }}
+                        </div>
+                        <form v-else>
+                            <p><strong>Faça o cadastro para se inscrever</strong></p>
                             <div class="form-floating mb-2">
                                 <input type="email" class="form-control" id="floatingInput"
                                     placeholder="name@example.com" v-model="formData.email">
@@ -218,53 +229,30 @@
                                     <label for="floatingName">Nome</label>
                                 </div>
                                 <div class="form-floating mb-2">
-                                    <input type="tel" class="form-control" id="floatingPhone"
-                                        placeholder="Telefone com DDD" v-model="formData.telefone">
+                                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Telefone com DDD" v-model="formData.telefone" @input="formatTelefone">
                                     <label for="floatingPhone">Telefone com DDD</label>
                                 </div>
-                                <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingSocialName" placeholder="Nome do canal/nome fantasia
-                                " v-model="formData.perfil">
+                                <!-- <div class="form-floating mb-2">
+                                    <input type="text" class="form-control" id="floatingSocialName" placeholder="Nome do canal/nome fantasia" v-model="formData.perfil">
                                     <label for="floatingSocialName">Nome do canal/nome fantasia</label>
-                                </div>
+                                </div> -->
                             </div>
                         </form>
                     </div>
 
-                    <div class="card-body validation-container d-flex justify-content-center" v-if="invalid">
-                        <div class="container">
-                            <span
-                                class="validation d-inline-flex my-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-10 border border-danger border-opacity-10 rounded-2 justify-content-center">{{credentials}}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer" v-if="!invalid">
+                    <div class="modal-footer">
                         <div>
-                            <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já sou
-                                Creator!</button>
+                            <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já faço parte da Creators.llc</button>
 
                             <button v-else class="btn bg-dark me-2" @click="toggleFieldsVisibility">Voltar</button>
                         </div>
                         <div class="flex-grow-1"></div>
                         <div>
-                            <div v-if="showAllFields && (formData.name === '' || formData.email === '' || formData.telefone === '' || formData.password === '' || formData.perfil === '')">
-                                <button class="btn me-2" disabled>Próximo</button>
-                            </div>
-                            <div v-else-if="!showAllFields && (formData.email === '' || formData.password === '')"> 
-                                <button class="btn me-2" disabled>Cadastrar</button>
-                            </div>
-                            <div v-else-if="!showAllFields && (formData.email !== '' && formData.password!== '')"> 
-                                <button class="btn me-2" @click="formLogin">Cadastrar</button>
-                            </div>
+                            <button v-if="showAllFields && (formData.name === '' || formData.email === '' || formData.telefone === '' || formData.password === '')" class="btn me-2" disabled>Próximo</button>
+                            <button v-else-if="!showAllFields && (formData.email === '' || formData.password === '')" class="btn me-2" disabled>Inscreva-se</button>
                             <button v-else-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Próximo</button>
                             <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
                         </div>                                             
-                    </div>
-                    <div v-if="showValidation" class="validation-container d-flex justify-content-center">
-                        <span
-                            class="validation d-inline-flex my-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 justify-content-center">
-                            {{ success }}</span>
                     </div>
                 </div>
             </div>
@@ -279,32 +267,38 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="container">
-                            <span class="mb-2">Selecione alguma vertical</span>
-                            <div class="row border mb-3">
-                                <div class="col-md-6">
-                                    <div class="form-check" v-for="v in vertical.slice(0, 4)" :key="v.id">
-                                        <input  type="checkbox" class="form-check-input" :id="'checkbox-' + v.name"
-                                            :value="v.id" v-model="formData.specialities" />
-                                        <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-check" v-for="v in vertical.slice(4)" :key="v.id">
-                                        <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name"
-                                            :value="v.id" v-model="formData.specialities" />
-                                        <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
-                                    </div>
-                                </div>
+                        <div v-if="isLoading" class="text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Carregando...</span>
                             </div>
+                                <p class="mt-2">Aguarde enquanto processamos sua inscrição...</p>
                         </div>
-                        <form>
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingAgente"
-                                    placeholder="Nome do canal/nome fantasia" v-model="formData.agent_email">
-                                <label for="floatingAgente">E-mail secundário</label>
+                        <div v-if="error" class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                        <div v-if="success" class="alert alert-success" role="alert">
+                            {{ success }}
+                        </div>
+                        <form v-else>
+                            <div class="container">
+                                <span class="mb-2">Selecione as verticais do seu conteúdo</span>
+                                <div class="row border mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-check" v-for="v in vertical.slice(0, 4)" :key="v.id">
+                                            <input  type="checkbox" class="form-check-input" :id="'checkbox-' + v.name"
+                                                :value="v.id" v-model="formData.specialities" />
+                                            <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check" v-for="v in vertical.slice(4)" :key="v.id">
+                                            <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name"
+                                                :value="v.id" v-model="formData.specialities" />
+                                            <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
                             <div>
                                 <div class="my-4" v-for="(item, index) in formData.validacaoRedes" :key="index">
                                     <div class="form-floating mb-2">
@@ -353,19 +347,9 @@
                         </form>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button class="btn bg-dark" data-bs-target="#exampleModalToggle"
-                            data-bs-toggle="modal">Voltar</button>
+                        <button class="btn bg-dark" @click="toggleReturn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Voltar</button>
                         <button class="btn" @click="formCreateUser">Cadastrar</button>
-                    </div>
-                                       
-                    <div class="card-body validation-container d-flex justify-content-center" v-if="showFail">
-                        <div class="validation-container d-flex justify-content-center">
-                            <span
-                                class="d-inline-flex my-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-10 border border-danger border-opacity-10 rounded-2 justify-content-center">
-                                {{ fail }}
-                            </span>
-                        </div>
-                    </div>                     
+                    </div>                   
                 </div>
             </div>
         </div>

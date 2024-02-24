@@ -126,13 +126,16 @@ createApp({
         validacaoRedes: [
           { socialMedia: '', link: '' }
         ]
-      },      
-      success: "Inscrição Realizada com sucesso!",
+      },
+
+      isLoading: false,
+      success: '',
+      error: '',
+
+      // success: "Inscrição Realizada com sucesso!",
       fail: "Usuário já possui cadastro!",
       credentials: "Suas credenciais não estão corretas. Por favor, verifique seu e-mail e senha e tente novamente.",
-      invalid: false,
-      showValidation: false,
-      showFail: false,
+      
       selectedSocialMedia: '',
       socialMediaInput: '',
       showAllFields: true,
@@ -156,37 +159,55 @@ createApp({
       this.activeIndex = this.activeIndex === index ? null : index;
     },
 
+    formatTelefone(event) {
+      let unformatted = event.target.value.replace(/\D/g, '');
+      
+      if (unformatted.length > 11) {
+        unformatted = unformatted.substr(0, 11);
+      }
+      this.formData.telefone = unformatted.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1)$2-$3');
+    },
+
     formLogin() {
+      this.error = "";
+      this.success = "";
+      this.isLoading = true;
+    
       fetch('https://dev.creators.llc/api/auth/login', {
-          method: 'POST',
-          body: JSON.stringify(this.formData),
-          headers: {
-              'Content-Type': 'application/json',
-          }
+        method: 'POST',
+        body: JSON.stringify(this.formData),
+        headers: {
+          'Content-Type': 'application/json',
+        }
       })
       .then(response => {
-          if (!response.ok) {
-              if (response.status === 401) {
-                this.invalid = true;
-              }
-          } else {
-            this.invalid = false;
-            return response.json();
+        if (!response.ok) {
+          if (response.status === 401) {
+            this.error = 'Ocorreu um erro no login. Por favor, verifique se o e-mail e senha estão corretos.';
           }
+          this.isLoading = false;
+        } else {
+          return response.json();
+        }
       })
       .then(data => {
         if (data) {
           this.formUpdateUser(data.data.access_token, data.data.user.id);
         }
+      })
+      .catch(error => {
+        // Se ocorrer um erro, defina a mensagem de erro
+        this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+        // Defina isLoading como falso para esconder a animação de carregamento
+        this.isLoading = false;
       });
-  },
-
+    },
+    
   
   formUpdateUser(token, id) {
     this.formData.validacaoRedes.forEach(element => {
       this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
-  });
-  console.log( this.formData, 'aqio');
+    });
     fetch('https://dev.creators.llc/api/v1/users/'+id, {
         method: 'PUT',
         body: JSON.stringify(this.formData),
@@ -202,19 +223,24 @@ createApp({
         return response.json(); 
     })
     .then(data => {
-      console.log(data, 'data');
         if(data.error) {
-            this.showFailError();
+            this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+            this.isLoading = false;
+
+
         } else if(!data.error) {
-          this.showValidationSuccess();
+          this.success = 'Inscrição efetuada com sucesso!';
+          this.isLoading = false;
         }
     })
     .catch(error => {
         console.error('Erro na solicitação:', error);
     });
-},
+  },
 
   formCreateUser() {
+    console.log("chegou auqi")
+      this.isLoading = true;
       fetch('https://dev.creators.llc/api/v1/users', {
           method: 'POST',
           body: JSON.stringify(this.formData),
@@ -231,7 +257,9 @@ createApp({
         .then(data => {
           console.log(this.formData);
         if(data.error) {
-          this.showFailError()
+          this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+          this.isLoading = false;
+
         } else {
           this.formUpdateUser(data.data.access_token, data.data.user.id);
         }
@@ -239,23 +267,14 @@ createApp({
     
     },
 
+    toggleReturn() {
+      this.error = "";
+      this.success = "";
+    },
     toggleFieldsVisibility() {
-      this.invalid = false;
+      this.error = "";
+      this.success = "";
       this.showAllFields = !this.showAllFields;
-    },
-
-    showFailError(){
-      this.showFail = true;
-      setTimeout(() => {
-        this.showFail = false;
-      }, 2000);
-    },
-
-    showValidationSuccess(){
-      this.showValidation = true;
-      setTimeout(() => {
-        this.showValidation = false;
-      }, 2000);  
     },
 
     addSocialMedia() {
