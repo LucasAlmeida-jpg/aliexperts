@@ -115,12 +115,11 @@ createApp({
         },
       ],
       formData: {
-        nome: "",
+        name: "",
         email: "",
         password: "",
-        telefone: "",
+        phone: "",
         perfil: "",
-        agent_email: "",
         origin: "aliexperts",
         specialities: [],
         validacaoRedes: [
@@ -131,15 +130,12 @@ createApp({
       isLoading: false,
       success: '',
       error: '',
-
-      // success: "Inscrição Realizada com sucesso!",
-      fail: "Usuário já possui cadastro!",
-      credentials: "Suas credenciais não estão corretas. Por favor, verifique seu e-mail e senha e tente novamente.",
+      selectedCount: 0,
       
       selectedSocialMedia: '',
       socialMediaInput: '',
       showAllFields: true,
-      alreadyCreator: false,
+      // alreadyCreator: false,
       
       vertical: [
         { name: "Beleza", id: 263 },
@@ -165,7 +161,11 @@ createApp({
       if (unformatted.length > 11) {
         unformatted = unformatted.substr(0, 11);
       }
-      this.formData.telefone = unformatted.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1)$2-$3');
+      this.formData.phone = unformatted.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1)$2-$3');
+    },
+
+    updateSelectedCount() {
+      this.selectedCount = this.formData.specialities.length;
     },
 
     formLogin() {
@@ -196,75 +196,74 @@ createApp({
         }
       })
       .catch(error => {
-        // Se ocorrer um erro, defina a mensagem de erro
         this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
-        // Defina isLoading como falso para esconder a animação de carregamento
         this.isLoading = false;
       });
     },
     
-  
-  formUpdateUser(token, id) {
-    this.formData.validacaoRedes.forEach(element => {
-      this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
-    });
-    fetch('https://dev.creators.llc/api/v1/users/'+id, {
-        method: 'PUT',
-        body: JSON.stringify(this.formData),
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao atualizar usuário');
-        }
-        return response.json(); 
-    })
-    .then(data => {
-        if(data.error) {
-            this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
-            this.isLoading = false;
-
-
-        } else if(!data.error) {
-          this.success = 'Inscrição efetuada com sucesso!';
-          this.isLoading = false;
-        }
-    })
-    .catch(error => {
-        console.error('Erro na solicitação:', error);
-    });
-  },
-
-  formCreateUser() {
-    console.log("chegou auqi")
-      this.isLoading = true;
-      fetch('https://dev.creators.llc/api/v1/users', {
-          method: 'POST',
+    formUpdateUser(token, id) {
+      this.formData.validacaoRedes.forEach(element => {
+        this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
+      });
+      fetch('https://dev.creators.llc/api/v1/users/'+id, {
+          method: 'PUT',
           body: JSON.stringify(this.formData),
           headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
           }
       })
       .then(response => {
           if (!response.ok) {
-              throw new Error('Erro ao criar usuário');
+              throw new Error('Erro ao atualizar usuário');
           }
-          return response.json();
+          return response.json(); 
       })
-        .then(data => {
-          console.log(this.formData);
-        if(data.error) {
-          this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
-          this.isLoading = false;
+      .then(data => {
+          if(data.error) {
+              this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+              this.isLoading = false;
+          } else if(!data.error) {
+            this.success = 'Inscrição efetuada com sucesso!';
+            this.isLoading = false;
+          }
+      })
+      .catch(error => {
+          console.error('Erro na solicitação:', error);
+      });
+    },
 
-        } else {
-          this.formUpdateUser(data.data.access_token, data.data.user.id);
-        }
-      })
-    
+    formCreateUser() {
+      this.error = "";
+      this.success = "";
+      if(this.isValid) {
+        this.isLoading = true;
+        fetch('https://dev.creators.llc/api/v1/users', {
+            method: 'POST',
+            body: JSON.stringify(this.formData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao criar usuário');
+            }
+            return response.json();
+        })
+          .then(data => {
+            console.log(this.formData);
+          if(data.error) {
+            this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+            this.isLoading = false;
+
+          } else {
+            this.formUpdateUser(data.data.access_token, data.data.user.id);
+          }
+        })
+      }else{
+        this.error = 'É necessário selecionar no mínimo 2 verticais do seu conteúdo.';
+      }
     },
 
     toggleReturn() {
@@ -318,6 +317,9 @@ createApp({
       const selectedIds = this.formData.specialities.map(Number);
       return this.vertical.filter((v) => selectedIds.includes(v.id));
     },
+    isValid() {
+      return this.selectedCount >= 2;
+    }
   },
 
   

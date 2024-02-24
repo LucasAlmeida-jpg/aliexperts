@@ -225,11 +225,11 @@
                             <div v-if="showAllFields">
                                 <div class="form-floating mb-2">
                                     <input type="text" class="form-control" id="floatingName" placeholder="Nome"
-                                        v-model="formData.nome">
+                                        v-model="formData.name">
                                     <label for="floatingName">Nome</label>
                                 </div>
                                 <div class="form-floating mb-2">
-                                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Telefone com DDD" v-model="formData.telefone" @input="formatTelefone">
+                                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Telefone com DDD" v-model="formData.phone" @input="formatTelefone">
                                     <label for="floatingPhone">Telefone com DDD</label>
                                 </div>
                                 <!-- <div class="form-floating mb-2">
@@ -241,14 +241,13 @@
                     </div>
 
                     <div class="modal-footer">
-                        <div>
+                        <div v-if="!success">
                             <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já faço parte da Creators.llc</button>
-
                             <button v-else class="btn bg-dark me-2" @click="toggleFieldsVisibility">Voltar</button>
                         </div>
                         <div class="flex-grow-1"></div>
                         <div>
-                            <button v-if="showAllFields && (formData.name === '' || formData.email === '' || formData.telefone === '' || formData.password === '')" class="btn me-2" disabled>Próximo</button>
+                            <button v-if="showAllFields && (formData.name === '' || formData.email === '' || formData.phone === '' || formData.password === '')" class="btn me-2" disabled>Próximo</button>
                             <button v-else-if="!showAllFields && (formData.email === '' || formData.password === '')" class="btn me-2" disabled>Inscreva-se</button>
                             <button v-else-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Próximo</button>
                             <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
@@ -280,7 +279,7 @@
                             {{ success }}
                         </div>
                         <form v-else>
-                            <div class="container">
+                            <!-- <div class="container">
                                 <span class="mb-2">Selecione as verticais do seu conteúdo</span>
                                 <div class="row border mb-3">
                                     <div class="col-md-6">
@@ -298,6 +297,26 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div> -->
+                            <div class="container">
+                                <span class="mb-2">Selecione as verticais do seu conteúdo</span>
+                                <div class="row border mb-3">
+                                  <div class="col-md-6">
+                                    <div class="form-check" v-for="v in vertical.slice(0, 4)" :key="v.id">
+                                      <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name" :value="v.id" v-model="formData.specialities" @change="updateSelectedCount" />
+                                      <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-check" v-for="v in vertical.slice(4)" :key="v.id">
+                                      <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name" :value="v.id" v-model="formData.specialities" @change="updateSelectedCount" />
+                                      <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
+                                    </div>
+                                  </div>
+                                <!-- </div>
+                                <div v-if="!isValid" class="alert alert-danger" role="alert">
+                                  Selecione pelo menos dois itens.
+                                </div> -->
                             </div>
                             <div>
                                 <div class="my-4" v-for="(item, index) in formData.validacaoRedes" :key="index">
@@ -346,7 +365,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="modal-footer d-flex justify-content-between">
+                    <div class="modal-footer d-flex justify-content-between" v-if="!success">
                         <button class="btn bg-dark" @click="toggleReturn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Voltar</button>
                         <button class="btn" @click="formCreateUser">Cadastrar</button>
                     </div>                   
