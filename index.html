@@ -210,7 +210,7 @@
                             {{ success }}
                         </div>
                         <form v-else>
-                            <p><strong>Faça o cadastro para se inscrever</strong></p>
+                            <p v-if="showAllFields"><strong>Faça o cadastro para se inscrever</strong></p>
                             <div class="form-floating mb-2">
                                 <input type="email" class="form-control" id="floatingInput"
                                     placeholder="name@example.com" v-model="formData.email">
