@@ -78,6 +78,49 @@ body {
     color: var(--color-white) !important;
 }
 
+.text-success {
+    color: green;
+    font-size: 11px;
+    margin-top: 9px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .text-warning {
+    color: orange;
+    font-size: 11px;
+    margin-top: 9px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .text-danger {
+    color: red;
+    font-size: 11px;
+    margin-top: 9px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .tooltip-trigger {
+    position: relative;
+  }
+  
+  .tooltip-content {
+    position: absolute;
+    top: 50%;
+    left: 43.4%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    display: none;
+    z-index: 1;
+  }
+  
+  .tooltip-trigger:hover + .tooltip-content {
+    display: block;
+  }
 @keyframes ping {
     0% {
       transform: translateY(0);

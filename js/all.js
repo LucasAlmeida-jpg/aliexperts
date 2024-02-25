@@ -1,4 +1,5 @@
 const { createApp } = Vue
+const isValidInput = (char) => /\d/.test(char);
 
 createApp({
   data() {
@@ -126,16 +127,15 @@ createApp({
           { socialMedia: '', link: '' }
         ]
       },
-
+      passwordStrength: '',
+      showingTooltip: false,
       isLoading: false,
       success: '',
       error: '',
-      selectedCount: 0,
-      
+      selectedCount: 0,      
       selectedSocialMedia: '',
       socialMediaInput: '',
       showAllFields: true,
-      // alreadyCreator: false,
       
       vertical: [
         { name: "Beleza", id: 263 },
@@ -155,15 +155,42 @@ createApp({
       this.activeIndex = this.activeIndex === index ? null : index;
     },
 
-    formatTelefone(event) {
-      let unformatted = event.target.value.replace(/\D/g, '');
-      
-      if (unformatted.length > 11) {
-        unformatted = unformatted.substr(0, 11);
+    formatTelefone() {
+      this.formData.phone = this.formData.phone.replace(/\D/g, ''); 
+      let phoneNumber = this.formData.phone;
+    
+      if (phoneNumber.length >= 2) {
+        this.formData.phone = `(${phoneNumber.substring(0, 2)}`;
       }
-      this.formData.phone = unformatted.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1)$2-$3');
+    
+      if (phoneNumber.length > 2) {
+        this.formData.phone += `) ${phoneNumber.substring(2, 7)}`;
+      }
+    
+      if (phoneNumber.length > 7) {
+        this.formData.phone += `-${phoneNumber.substring(7, 11)}`;
+      }
     },
 
+    checkPasswordStrength() {
+      const password = this.formData.password;
+      if (password.length >= 8 && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password)) {
+        this.passwordStrength = 'Forte';
+      } else if (password.length >= 6 && /[a-zA-Z]/.test(password) && /\d/.test(password)) {
+        this.passwordStrength = 'Média';
+      } else {
+        this.passwordStrength = 'Fraca';
+      }
+    },
+    
+    showTooltip() {
+      this.showingTooltip = true;
+    },
+
+    hideTooltip() {
+      this.showingTooltip = false;
+    },
+  
     updateSelectedCount() {
       this.selectedCount = this.formData.specialities.length;
     },
@@ -226,6 +253,9 @@ createApp({
           } else if(!data.error) {
             this.success = 'Inscrição efetuada com sucesso!';
             this.isLoading = false;
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           }
       })
       .catch(error => {
@@ -270,6 +300,7 @@ createApp({
       this.error = "";
       this.success = "";
     },
+
     toggleFieldsVisibility() {
       this.error = "";
       this.success = "";
@@ -281,11 +312,13 @@ createApp({
         this.formData.validacaoRedes.push({ socialMedia: '', link: '' });
       }
     },
+
     removeSocialMedia() {
       if (this.formData.validacaoRedes.length > 1) {
         this.formData.validacaoRedes.pop();
       }
     },
+
     getBaseLink(socialMedia) {
       if (socialMedia === 'behance') {
         return 'https://www.behance.net/';

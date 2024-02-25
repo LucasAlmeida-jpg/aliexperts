@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
     <title>AliExperts</title>
 </head>
 
@@ -214,13 +215,18 @@
                             <div class="form-floating mb-2">
                                 <input type="email" class="form-control" id="floatingInput"
                                     placeholder="name@example.com" v-model="formData.email">
-                                <label for="floatingInput">Email</label>
+                                <label for="floatingInput">E-mail</label>
                             </div>
                             <div class="form-floating mb-2">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                                    v-model="formData.password">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="formData.password" @input="checkPasswordStrength">
                                 <label for="floatingPassword">Senha</label>
-                            </div>
+                                <div v-if="passwordStrength" :class="{'text-success': passwordStrength === 'Forte', 'text-warning': passwordStrength === 'Média', 'text-danger': passwordStrength === 'Fraca'}">
+                                  <span class="tooltip-trigger" @mouseenter="showTooltip" @mouseleave="hideTooltip">Senha {{ passwordStrength }}</span>
+                                  <div v-show="showingTooltip" class="tooltip-content">
+                                    Para que a senha seja forte, é preciso ter letra maiúscula, caractere especial e números!
+                                  </div>
+                                </div>
+                              </div>
 
                             <div v-if="showAllFields">
                                 <div class="form-floating mb-2">
@@ -229,13 +235,9 @@
                                     <label for="floatingName">Nome</label>
                                 </div>
                                 <div class="form-floating mb-2">
-                                    <input type="tel" class="form-control" id="floatingPhone" placeholder="Telefone com DDD" v-model="formData.phone" @input="formatTelefone">
-                                    <label for="floatingPhone">Telefone com DDD</label>
-                                </div>
-                                <!-- <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingSocialName" placeholder="Nome do canal/nome fantasia" v-model="formData.perfil">
-                                    <label for="floatingSocialName">Nome do canal/nome fantasia</label>
-                                </div> -->
+                                    <input type="tel" class="form-control" id="floatingPhone" v-model="formData.phone" @input="formatTelefone" value="Telefone">
+                                    <label for="floatingPhone">Telefone com DDD (xx)xxxxx-xxxx</label>
+                                </div>                                  
                             </div>
                         </form>
                     </div>
