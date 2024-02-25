@@ -220,7 +220,7 @@
                             <div class="form-floating mb-2">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="formData.password" @input="checkPasswordStrength">
                                 <label for="floatingPassword">Senha</label>
-                                <div v-if="passwordStrength" :class="{'text-success': passwordStrength === 'Forte', 'text-warning': passwordStrength === 'Média', 'text-danger': passwordStrength === 'Fraca'}">
+                                <div v-if="passwordStrength && showAllFields" :class="{'text-success': passwordStrength === 'Forte', 'text-warning': passwordStrength === 'Média', 'text-danger': passwordStrength === 'Fraca'}">
                                   <span class="tooltip-trigger" @mouseenter="showTooltip" @mouseleave="hideTooltip">Senha {{ passwordStrength }}</span>
                                   <div v-show="showingTooltip" class="tooltip-content">
                                     Para que a senha seja forte, é preciso ter letra maiúscula, caractere especial e números!
