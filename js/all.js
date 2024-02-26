@@ -237,7 +237,6 @@ createApp({
             this.isLoading = false;
             this.success = "E-mail já inscrito!";
           }
-          
         }
       })
       .catch(error => {
@@ -283,7 +282,7 @@ createApp({
     },
 
     formForgot(){
-      if(this.formData.email === "") {
+      if(this.formData.email == "") {
         this.error = 'Preencha um email válido';
       }else{
         const requestBody = {

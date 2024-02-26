@@ -254,7 +254,7 @@
                         <div >
                             <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já faço parte da Creators.llc</button>
                             <button v-else-if="!showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Voltar</button>
-                            <button v-if="!showAllFields" class="btn bg-dark me-2">Esqueci a senha</button>
+                            <button v-if="!showAllFields" class="btn bg-dark me-2" @click="formForgot">Esqueci a senha</button>
                         </div>
                         <div >
                             <button v-if="showAllFields && (formData.name === '' || formData.email === '' || (formData.phone === '' || formData.phone.length < 14) || formData.password === '')" class="btn me-2" disabled>Próximo</button>
