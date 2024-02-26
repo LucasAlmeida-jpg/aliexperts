@@ -17,7 +17,7 @@ createApp({
           content: 'Sim, ela será compartilhada com os criadores a cada briefing enviado.' },
         { title: 'A participação nas aulas é obrigatória? Será calculada a frequência?',
           content: 'A participação é recomendada, mas não obrigatória. As aulas também ficarão gravadas para o consumo posterior, caso você não consiga assistir ao vivo.' },
-        { title: 'O pagamento está vinculado à performance apenas ou tem um valor fixo?',
+        { title: 'O pagamento está vinculado à performance apenas ou tem um valor fixo? Como é feito o pagamento?',
           content: 'O pagamento de comissionamento é vinculado à performance. O pagamento dos desafios tem um valor fixo que será enviado junto ao briefing. O pagamento é realizado através de invoice internacional e você recebe na conta indicada na plataforma da Creators.llc, na área de dados bancários.' },
         { title: 'Vou precisar ter exclusividade com a AliExpress ou posso indicar produtos da concorrência?',
           content: 'Não há exclusividade, mas quanto mais produtos da mesma plataforma você indicar, melhores são as suas chances de monetização.' },
