@@ -249,6 +249,7 @@ createApp({
       this.formData.validacaoRedes.forEach(element => {
         this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
       });
+      console.log(this.formData)
       fetch('https://creators.llc/api/v1/users/'+id, {
           method: 'PUT',
           body: JSON.stringify(this.formData),
