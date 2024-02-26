@@ -173,7 +173,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
+                            <!-- <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
                                 <div @click="toggleAccordion(index)" class="accordion-header">
                                     {{ item.title }}
                                     <span :class="{ 'rotate-arrow': activeIndex === index }">&#9660;</span>
@@ -181,7 +181,15 @@
                                 <div v-if="activeIndex === index" class="accordion-content">
                                     {{ item.content }}
                                 </div>
+                            </div> -->
+                            <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
+                                <div @click="toggleAccordion(index)" class="accordion-header">
+                                    {{ item.title }}
+                                    <span :class="{ 'rotate-arrow': activeIndex === index }">&#9660;</span>
+                                </div>
+                                <div v-if="activeIndex === index" class="accordion-content" v-html="item.content"></div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -349,17 +357,9 @@
                                         <select v-model="item.socialMedia" class="form-select form-select-sm mb-3"
                                             aria-label=".form-select-sm example">
                                             <option value="" disabled selected>Escolha sua rede</option>
-                                            <option value="behance">Behance</option>
-                                            <option value="facebook">Facebook</option>
                                             <option value="instagram">Instagram</option>
-                                            <option value="linkedin">Linkedin</option>
-                                            <!-- <option value="Site Pessoal">Site pessoal</option> -->
                                             <option value="tiktok">TikTok</option>
-                                            <option value="twitch">Twitch</option>
-                                            <option value="twitter">X</option>
-                                            <option value="vimeo">Vimeo</option>
                                             <option value="youtube">Youtube</option>
-                                            <option value="pinterest">Pinterest</option>
                                         </select>
                                     </div>
                                     <div v-if="item.socialMedia !== ''">

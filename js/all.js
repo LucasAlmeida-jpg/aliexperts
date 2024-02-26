@@ -7,15 +7,22 @@ createApp({
       activeIndex: null,
       creatorsForm: false,
       accordionItems: [
-        { title: 'Quantos produtos serão enviados? Precisa devolver?', content: 'Content...' },
-        { title: 'Como funciona o comissionamento?', content: 'Content...' },
-        { title: 'Qual valor da porcentagem e do bônus?', content: 'Content...' },
-        { title: 'Qual o critério de avaliação dos conteúdos para a bonificação?', content: 'Content...' },
-        { title: 'Haverá um cronograma de postagem pré-definido?', content: 'Content...' },
-        { title: 'A participação nas aulas é obrigatória? Será calculada a frequência?', content: 'Content...' },
-        { title: 'O pagamento está vinculado à performance apenas ou tem um valor fixo?', content: 'Content...' },
-        { title: 'Vou precisar ter exclusividade com a AliExpress ou posso indicar produtos da concorrência?', content: 'Content...' },
-        { title: 'Qual a duração do projeto?', content: 'Content...' },
+        { title: 'Quantos produtos serão enviados? Precisa devolver?',
+          content: 'Será enviado pelo menos 1 produto mensal, não é necessária a devolução.' },
+        { title: 'Como funciona o comissionamento?',
+          content: 'Saiba todas as regras de comissionamento neste link: <a href="https://learning.br.aliexpress.com/course/learn?id=2623&type=video&spm=courserlist_courses.4.0">Programa de Afiliados do AliExpress</a>' },
+        { title: 'Qual o critério de avaliação dos conteúdos para a bonificação?',
+          content: 'Criatividade, performance, engajamento, entrega completa de acordo com o briefing, agilidade, retorno em vendas, entre outros.' },
+        { title: 'Haverá um cronograma de postagem pré-definido?',
+          content: 'Sim, ela será compartilhada com os criadores a cada briefing enviado.' },
+        { title: 'A participação nas aulas é obrigatória? Será calculada a frequência?',
+          content: 'A participação é recomendada, mas não obrigatória. As aulas também ficarão gravadas para o consumo posterior, caso você não consiga assistir ao vivo.' },
+        { title: 'O pagamento está vinculado à performance apenas ou tem um valor fixo?',
+          content: 'O pagamento de comissionamento é vinculado à performance. O pagamento dos desafios tem um valor fixo que será enviado junto ao briefing. O pagamento é realizado através de invoice internacional e você recebe na conta indicada na plataforma da Creators.llc, na área de dados bancários.' },
+        { title: 'Vou precisar ter exclusividade com a AliExpress ou posso indicar produtos da concorrência?',
+          content: 'Não há exclusividade, mas quanto mais produtos da mesma plataforma você indicar, melhores são as suas chances de monetização.' },
+        { title: 'Qual a duração do projeto?',
+          content: 'Não há previsão de encerramento, enquanto você entregar conteúdos no programa, o comissionamento estará ativo.' },
       ],
       items: [
         {
@@ -28,7 +35,7 @@ createApp({
           numbers: "assets/22.svg",
           title: "Remuneração",
           image: "assets/Group539.png",
-          description: "Você terá uma remuneração de engajamento no primeiro mês e suas vendas terão comissões regulares através dos seus conteúdos postados com a frequência combinada.<br><br>Os melhores conteúdos ainda terão bônus por performance no final do programa!",
+          description: "Você receberá briefings mensais com chances de ganhar remuneração em dólares pelo seu conteúdo. Os criadores mais engajados no final do programa ainda terão bônus incríveis por performance.",
         },
         {
           numbers: "assets/4.svg",
@@ -320,26 +327,12 @@ createApp({
     },
 
     getBaseLink(socialMedia) {
-      if (socialMedia === 'behance') {
-        return 'https://www.behance.net/';
-      } else if (socialMedia === 'facebook') {
-        return 'https://www.facebook.com/';
-      } else if (socialMedia === 'instagram') {
+      if (socialMedia === 'instagram') {
         return 'https://www.instagram.com/';
-      } else if (socialMedia === 'linkedin') {
-        return 'https://www.linkedin.com/in/';
       } else if (socialMedia === 'youtube') {
         return 'https://www.youtube.com/';
       } else if (socialMedia === 'tikTok') {
         return 'https://www.tiktok.com/';
-      } else if (socialMedia === 'twitch') {
-        return 'https://www.twitch.tv/';
-      } else if (socialMedia === 'pinterest') {
-        return 'https://www.pinterest.com/';
-      } else if (socialMedia === 'twitter') {
-        return 'https://twitter.com/';
-      } else if (socialMedia === 'vimeo') {
-        return 'https://vimeo.com/';
       }
       return '';
     },
