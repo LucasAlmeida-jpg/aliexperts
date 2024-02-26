@@ -129,6 +129,7 @@ createApp({
         phone: "",
         perfil: "",
         origin: "aliexperts",
+        date_subscription: null,
         specialities: [],
         validacaoRedes: [
           { socialMedia: '', link: '' }
@@ -226,7 +227,17 @@ createApp({
       })
       .then(data => {
         if (data) {
-          this.formUpdateUser(data.data.access_token, data.data.user.id);
+          if(data.data.date_subscription != null){
+            const now = new Date();
+            const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+            this.formData.date_subscription = formattedDate;
+
+            this.formUpdateUser(data.data.access_token, data.data.user.id);
+          }else{
+            this.isLoading = false;
+            this.success = "E-mail já inscrito!";
+          }
+          
         }
       })
       .catch(error => {
@@ -260,6 +271,7 @@ createApp({
           } else if(!data.error) {
             this.success = 'Inscrição efetuada com sucesso!';
             this.isLoading = false;
+
             setTimeout(() => {
               window.location.reload();
             }, 1000);
@@ -270,11 +282,51 @@ createApp({
       });
     },
 
+    formForgot(){
+      if(this.formData.email === "") {
+        this.error = 'Preencha um email válido';
+      }else{
+        const requestBody = {
+          email: this.formData.email
+        };
+
+        fetch('https://dev.creators.llc/api/password/create', {
+          method: 'POST',
+          body: JSON.stringify(requestBody),
+          headers: {
+              'Content-Type': 'application/json',
+          }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar usuário');
+            }
+            return response.json();
+        })
+        .then(data => {
+          if (data.data && data.data.message) {
+              const successMessage = data.data.message;
+              this.success = successMessage;
+          } else {
+              throw new Error('Resposta do servidor incompleta ou sem mensagem');
+          }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+      }
+    },
+
     formCreateUser() {
       this.error = "";
       this.success = "";
       if(this.isValid) {
         this.isLoading = true;
+
+        const now = new Date();
+        const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+        this.formData.date_subscription = formattedDate;
+
         fetch('https://dev.creators.llc/api/v1/users', {
             method: 'POST',
             body: JSON.stringify(this.formData),
@@ -291,7 +343,6 @@ createApp({
           .then(data => {
             
           if(data.error) {
-            console.log(data.error);
             if (data.error.email) {
               if (Array.isArray(data.error.email) && data.error.email.length > 0) {
                 const errorMessage = data.error.email[0];
