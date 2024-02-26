@@ -319,7 +319,10 @@ createApp({
     formCreateUser() {
       this.error = "";
       this.success = "";
-      if(this.isValid) {
+
+      this.validadeRedes()
+
+      if(this.selectedCount >= 2 && this.validadeRedes()) {
         this.isLoading = true;
 
         const now = new Date();
@@ -356,8 +359,28 @@ createApp({
           }
         })
       }else{
-        this.error = 'É necessário selecionar no mínimo 2 verticais do seu conteúdo.';
+        if(this.selectedCount < 1) {
+          this.error = 'É necessário selecionar no mínimo 2 verticais do seu conteúdo.';
+        }else {
+          this.error = 'É necessário selecionar no mínimo 1 rede.';
+        }
       }
+    },
+
+    validadeRedes() {
+      if(Array.isArray(this.formData.validacaoRedes) && this.formData.validacaoRedes.length > 0) {
+        const primeiroElemento = this.formData.validacaoRedes[0];
+        const socialMediaVazia = primeiroElemento.socialMedia.trim() === '';
+        const linkVazio = primeiroElemento.link.trim() === '';
+        
+        if (socialMediaVazia || linkVazio) {
+          return false
+          
+        } 
+      } else {
+          return false
+      }
+      return true
     },
 
     toggleReturn() {
@@ -401,7 +424,11 @@ createApp({
       return this.vertical.filter((v) => selectedIds.includes(v.id));
     },
     isValid() {
-      return this.selectedCount >= 2;
+      const vertical = this.selectedCount >= 2;
+      const redes = this.formData.validacaoRedes.length >= 1;
+
+
+      return [vertical, redes];
     }
   },
 
