@@ -227,7 +227,8 @@ createApp({
       })
       .then(data => {
         if (data) {
-          if(data.data?.user && typeof data.data.user.date_subscription != 'undefined' && data.data.user.date_subscription != null){
+          console.log(data.data.user.date_subscription)
+          if(data.data.user && data.data.user.date_subscription != null){
             const now = new Date();
             const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
             this.formData.date_subscription = formattedDate;
