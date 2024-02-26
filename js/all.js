@@ -289,11 +289,18 @@ createApp({
             return response.json();
         })
           .then(data => {
-            console.log(this.formData);
+            
           if(data.error) {
-            this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+            console.log(data.error);
+            if (data.error.email) {
+              if (Array.isArray(data.error.email) && data.error.email.length > 0) {
+                const errorMessage = data.error.email[0];
+                this.error = errorMessage;
+              }
+            }else{
+              this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
+            }
             this.isLoading = false;
-
           } else {
             this.formUpdateUser(data.data.access_token, data.data.user.id);
           }
