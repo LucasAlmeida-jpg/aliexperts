@@ -123,6 +123,7 @@ createApp({
         },
       ],
       formData: {
+        new: false,
         name: "",
         email: "",
         password: "",
@@ -321,14 +322,13 @@ createApp({
       this.error = "";
       this.success = "";
 
-      this.validadeRedes()
-
       if(this.selectedCount >= 2 && this.validadeRedes()) {
         this.isLoading = true;
 
         const now = new Date();
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
         this.formData.date_subscription = formattedDate;
+        this.formData.new = true;
 
         fetch('https://creators.llc/api/v1/users', {
             method: 'POST',
@@ -356,11 +356,12 @@ createApp({
             }
             this.isLoading = false;
           } else {
+            this.formData.new = false;
             this.formUpdateUser(data.data.access_token, data.data.user.id);
           }
         })
       }else{
-        if(this.selectedCount < 1) {
+        if(this.selectedCount < 2) {
           this.error = 'É necessário selecionar no mínimo 2 verticais do seu conteúdo.';
         }else {
           this.error = 'É necessário selecionar no mínimo 1 rede.';
@@ -376,7 +377,6 @@ createApp({
         
         if (socialMediaVazia || linkVazio) {
           return false
-          
         } 
       } else {
           return false
