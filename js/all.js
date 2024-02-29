@@ -250,7 +250,7 @@ createApp({
       this.formData.validacaoRedes.forEach(element => {
         this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
       });
-      console.log(this.formData)
+      this.formData.new = true;
       fetch('https://creators.llc/api/v1/users/'+id, {
           method: 'PUT',
           body: JSON.stringify(this.formData),
@@ -328,7 +328,6 @@ createApp({
         const now = new Date();
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
         this.formData.date_subscription = formattedDate;
-        this.formData.new = true;
 
         fetch('https://creators.llc/api/v1/users', {
             method: 'POST',
