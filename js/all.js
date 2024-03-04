@@ -27,31 +27,31 @@ createApp({
       items: [
         {
           numbers: "assets/2.svg",
-          title: "Produtos",
+          title: "Ganhe Produtos",
           image: "assets/Group527.png",
           description: "Você receberá produtos incríveis do <strong>AliExpress</strong> para a criação do seu conteúdo, diretamente na sua casa.",
         },
         {
           numbers: "assets/22.svg",
-          title: "Remuneração",
+          title: "Aumente sua Monetização",
           image: "assets/Group539.png",
           description: "Você receberá briefings mensais com chances de ganhar remuneração em dólares pelo seu conteúdo. Os criadores mais engajados no final do programa ainda terão bônus incríveis por performance.",
         },
         {
           numbers: "assets/4.svg",
-          title: "Comunidade",
+          title: "Entre para uma Comunidade",
           image: "assets/Group528.png",
           description: "Faça parte de uma comunidade de criadores assim como você, troque ideias e atinja o máximo do potencial das suas redes sociais.",
         },
         {
           numbers: "assets/44.svg",
-          title: "Desafios",
+          title: "Participe de Desafios",
           image: "assets/Group520.png",
           description: "Lançaremos desafios de conteúdo ao longo dos meses para que você consiga soltar sua imaginação e potencial criativo nos seus conteúdos.",
         },
         {
           numbers: "assets/1.svg",
-          title: "Educação",
+          title: "Aprenda com os Melhores",
           image: "assets/Group509.png",
           description: "Teremos professores e aulas com especialistas em vendas através das redes sociais, além de suporte ao criador pelo nosso time para que seus conteúdos sejam mais envolventes e engajadores.",
         },
