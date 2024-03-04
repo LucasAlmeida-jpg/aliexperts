@@ -130,7 +130,7 @@ createApp({
         phone: "",
         perfil: "",
         origin: "aliexperts",
-        date_subscription: "",
+        // date_subscription: "",
         specialities: [],
         validacaoRedes: [
           { socialMedia: '', link: '' }
@@ -209,7 +209,7 @@ createApp({
       this.success = "";
       this.isLoading = true;
     
-      fetch('https://creators.llc/api/auth/login', {
+      fetch('https://dev.creators.llc/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(this.formData),
         headers: {
@@ -229,11 +229,12 @@ createApp({
       .then(data => {
         if (data) {
           if(data.data.user && data.data.user.date_subscription == null){
-            const now = new Date();
-            const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-            this.formData.date_subscription = formattedDate;
-
-            this.formUpdateUser(data.data.access_token, data.data.user.id);
+            if (data.data.user.network.instagram || data.data.user.network.youtube || data.data.user.network.tiktok){
+              this.formUpdateUser(data.data.access_token, data.data.user.id);
+            }else{
+              this.error = 'Sua inscrição não pode ser efetivada pois não há rede social cadastrada. Acesse Creators.llc e ajuste suas informações.';
+              this.isLoading = false;
+            }
           }else{
             this.isLoading = false;
             this.success = "E-mail já inscrito!";
@@ -247,11 +248,8 @@ createApp({
     },
     
     formUpdateUser(token, id) {
-      this.formData.validacaoRedes.forEach(element => {
-        this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
-      });
       this.formData.new = true;
-      fetch('https://creators.llc/api/v1/users/'+id, {
+      fetch('https://dev.creators.llc/api/v1/users/'+id, {
           method: 'PUT',
           body: JSON.stringify(this.formData),
           headers: {
@@ -291,7 +289,7 @@ createApp({
           email: this.formData.email
         };
 
-        fetch('https://creators.llc/api/password/create', {
+        fetch('https://dev.creators.llc/api/password/create', {
           method: 'POST',
           body: JSON.stringify(requestBody),
           headers: {
@@ -325,11 +323,11 @@ createApp({
       if(this.selectedCount >= 2 && this.validadeRedes()) {
         this.isLoading = true;
 
-        const now = new Date();
-        const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-        this.formData.date_subscription = formattedDate;
+        // const now = new Date();
+        // const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+        // this.formData.date_subscription = formattedDate;
 
-        fetch('https://creators.llc/api/v1/users', {
+        fetch('https://dev.creators.llc/api/v1/users', {
             method: 'POST',
             body: JSON.stringify(this.formData),
             headers: {
@@ -356,6 +354,9 @@ createApp({
             this.isLoading = false;
           } else {
             this.formData.new = false;
+            this.formData.validacaoRedes.forEach(element => {
+              this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
+            });
             this.formUpdateUser(data.data.access_token, data.data.user.id);
           }
         })
