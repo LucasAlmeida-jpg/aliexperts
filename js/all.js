@@ -209,7 +209,7 @@ createApp({
       this.success = "";
       this.isLoading = true;
     
-      fetch('https://dev.creators.llc/api/auth/login', {
+      fetch('https://creators.llc/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(this.formData),
         headers: {
@@ -249,7 +249,7 @@ createApp({
     
     formUpdateUser(token, id) {
       this.formData.new = true;
-      fetch('https://dev.creators.llc/api/v1/users/'+id, {
+      fetch('https://creators.llc/api/v1/users/'+id, {
           method: 'PUT',
           body: JSON.stringify(this.formData),
           headers: {
@@ -289,7 +289,7 @@ createApp({
           email: this.formData.email
         };
 
-        fetch('https://dev.creators.llc/api/password/create', {
+        fetch('https://creators.llc/api/password/create', {
           method: 'POST',
           body: JSON.stringify(requestBody),
           headers: {
@@ -327,7 +327,7 @@ createApp({
         // const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
         // this.formData.date_subscription = formattedDate;
 
-        fetch('https://dev.creators.llc/api/v1/users', {
+        fetch('https://creators.llc/api/v1/users', {
             method: 'POST',
             body: JSON.stringify(this.formData),
             headers: {
