@@ -85,7 +85,7 @@ createApp({
         }
       ],
       itemsMiniCard: [
-        { content: 'Você precisará criar 2 Reels (1 por quinzena) e 12 stories por mês <br> (2 combos de 3 telas entregues por quinzena).' },
+        { content: 'Você precisará criar 2 Reels (1 por quinzena) e 3 combos stories (com pelo menos 3 telas) entregues por mês. ' },
         { content: 'Inscrever-se através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação.' },
         { content: 'Ter disponibilidade para participar do programa e entregar conteúdos.' },
         { content: 'Caso você seja aprovado, é obrigatório o opt-in das suas redes sociais para analisarmos os resultados das postagens.' },
