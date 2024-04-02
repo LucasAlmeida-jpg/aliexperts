@@ -226,6 +226,12 @@
                         </div>
                         <form v-else>
                             <p v-if="showAllFields"><strong>Faça o cadastro para se inscrever</strong></p>
+                            <div v-if="showAllFields" class="form-floating mb-2">
+                                <input type="text" class="form-control" id="floatingCpf"
+                                    placeholder="###.###.###.##" v-model="formData.cpf"
+                                    @input="formatCpf" value="Cpf">
+                                <label for="floatingCpf">CPF</label>
+                            </div>
                             <div class="form-floating mb-2">
                                 <input type="email" class="form-control" id="floatingInput"
                                     placeholder="name@example.com" v-model="formData.email">

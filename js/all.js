@@ -127,6 +127,7 @@ createApp({
         name: "",
         email: "",
         password: "",
+        cpf: "",
         phone: "",
         perfil: "",
         origin: "aliexperts",
@@ -180,6 +181,22 @@ createApp({
         this.formData.phone += `-${phoneNumber.substring(7, 11)}`;
       }
     },
+    formatCpf() {
+      this.formData.cpf = this.formData.cpf.replace(/\D/g, ''); 
+      let cpfNumber = this.formData.cpf;
+  
+      // Adiciona os pontos e o hífen conforme o CPF é digitado
+      if (cpfNumber.length > 3 && cpfNumber.length < 7) {
+          cpfNumber = cpfNumber.substring(0, 3) + '.' + cpfNumber.substring(3);
+      } else if (cpfNumber.length > 6 && cpfNumber.length < 10) {
+          cpfNumber = cpfNumber.substring(0, 3) + '.' + cpfNumber.substring(3, 6) + '.' + cpfNumber.substring(6);
+      } else if (cpfNumber.length > 9) {
+          cpfNumber = cpfNumber.substring(0, 3) + '.' + cpfNumber.substring(3, 6) + '.' + cpfNumber.substring(6, 9) + '-' + cpfNumber.substring(9, 11);
+      }
+  
+      // Atualiza o valor do campo de entrada com o cpfNumber formatado
+      this.formData.cpf = cpfNumber;
+  },
 
     checkPasswordStrength() {
       const password = this.formData.password;
@@ -249,7 +266,7 @@ createApp({
     
     formUpdateUser(token, id) {
       this.formData.new = true;
-      fetch('https://creators.llc/api/v1/users/'+id, {
+      fetch('https://dev.creators.llc/api/v1/users/'+id, {
           method: 'PUT',
           body: JSON.stringify(this.formData),
           headers: {
@@ -327,7 +344,7 @@ createApp({
         // const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
         // this.formData.date_subscription = formattedDate;
 
-        fetch('https://creators.llc/api/v1/users', {
+        fetch('https://dev.creators.llc/api/v1/users', {
             method: 'POST',
             body: JSON.stringify(this.formData),
             headers: {
@@ -348,7 +365,13 @@ createApp({
                 const errorMessage = data.error.email[0];
                 this.error = errorMessage;
               }
-            }else{
+            }else if(data.error.cpf){
+              if (Array.isArray(data.error.cpf) && data.error.cpf.length > 0) {
+                const errorMessage = data.error.cpf[0];
+                this.error = errorMessage;
+              }              
+            }
+            else{
               this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
             }
             this.isLoading = false;
