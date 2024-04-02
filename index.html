@@ -229,7 +229,8 @@
                             <div v-if="showAllFields" class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatingCpf"
                                     placeholder="###.###.###.##" v-model="formData.cpf"
-                                    @input="formatCpf" value="Cpf">
+                                    @input="formatCpf" value="Cpf"
+                                    :maxlength="14" :minlength="14">
                                 <label for="floatingCpf">CPF</label>
                             </div>
                             <div class="form-floating mb-2">

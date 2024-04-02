@@ -337,6 +337,11 @@ createApp({
       this.error = "";
       this.success = "";
 
+      if (this.formData.cpf.length < 14) {
+        this.error = 'O CPF está incompleto.';
+        return;
+      }
+
       if(this.selectedCount >= 2 && this.validadeRedes()) {
         this.isLoading = true;
 
@@ -382,6 +387,7 @@ createApp({
             });
             this.formUpdateUser(data.data.access_token, data.data.user.id);
           }
+          
         })
       }else{
         if(this.selectedCount < 2) {
