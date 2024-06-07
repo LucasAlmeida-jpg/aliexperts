@@ -86,8 +86,8 @@ createApp({
       ],
       itemsMiniCard: [
         { content: 'Você precisará criar 2 Reels, 1 repost no TikTok e 5 Combos de Stories (3 telas cada).' },
-        { content: 'Inscrever-se de 26/02 a 25/03, através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação.' },
-        { content: 'Ter disponibilidade para participar do programa e entregar conteúdos até março de 2025.' },
+        { content: 'Inscrever-se através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação.' },
+        { content: 'Ter disponibilidade para participar do programa e entregar conteúdos conforme cronograma de postagens.' },
         { content: 'Caso você seja aprovado, é obrigatório o opt-in das suas redes sociais para analisarmos os resultados das postagens.' },
       ],
       tutors: [
