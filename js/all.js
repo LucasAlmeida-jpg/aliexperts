@@ -27,31 +27,31 @@ createApp({
       items: [
         {
           numbers: "assets/2.svg",
-          title: "Ganhe Produtos",
+          title: "Produtos",
           image: "assets/Group527.png",
           description: "Você receberá produtos incríveis do <strong>AliExpress</strong> para a criação do seu conteúdo, diretamente na sua casa.",
         },
         {
           numbers: "assets/22.svg",
-          title: "Aumente sua Monetização",
+          title: "Remuneração",
           image: "assets/Group539.png",
           description: "Você receberá briefings mensais com chances de ganhar remuneração em dólares pelo seu conteúdo. Os criadores mais engajados no final do programa ainda terão bônus incríveis por performance.",
         },
         {
           numbers: "assets/4.svg",
-          title: "Entre para uma Comunidade",
+          title: "Comunidade",
           image: "assets/Group528.png",
           description: "Faça parte de uma comunidade de criadores assim como você, troque ideias e atinja o máximo do potencial das suas redes sociais.",
         },
         {
           numbers: "assets/44.svg",
-          title: "Participe de Desafios",
+          title: "Desafios",
           image: "assets/Group520.png",
           description: "Lançaremos desafios de conteúdo ao longo dos meses para que você consiga soltar sua imaginação e potencial criativo nos seus conteúdos.",
         },
         {
           numbers: "assets/1.svg",
-          title: "Aprenda com os Melhores",
+          title: "Educação",
           image: "assets/Group509.png",
           description: "Teremos professores e aulas com especialistas em vendas através das redes sociais, além de suporte ao criador pelo nosso time para que seus conteúdos sejam mais envolventes e engajadores.",
         },
@@ -85,9 +85,9 @@ createApp({
         }
       ],
       itemsMiniCard: [
-        { content: 'Você precisará criar 2 Reels (1 por quinzena) e 3 combos stories <br>(com pelo menos 3 telas) entregues por mês. ' },
-        { content: 'Inscrever-se através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação.' },
-        { content: 'Ter disponibilidade para participar do programa e entregar conteúdos.' },
+        { content: 'Você precisará criar 2 Reels, 1 repost no TikTok e 5 Combos de Stories (3 telas cada).' },
+        { content: 'Inscrever-se de 26/02 a 25/03, através do site Creators.llc/AliExperts e não deixar nenhum campo em branco, eles serão necessários para a nossa validação.' },
+        { content: 'Ter disponibilidade para participar do programa e entregar conteúdos até março de 2025.' },
         { content: 'Caso você seja aprovado, é obrigatório o opt-in das suas redes sociais para analisarmos os resultados das postagens.' },
       ],
       tutors: [
@@ -123,15 +123,13 @@ createApp({
         },
       ],
       formData: {
-        new: false,
         name: "",
         email: "",
         password: "",
-        cpf: "",
         phone: "",
         perfil: "",
         origin: "aliexperts",
-        // date_subscription: "",
+        date_subscription: "",
         specialities: [],
         validacaoRedes: [
           { socialMedia: '', link: '' }
@@ -181,22 +179,6 @@ createApp({
         this.formData.phone += `-${phoneNumber.substring(7, 11)}`;
       }
     },
-    formatCpf() {
-      this.formData.cpf = this.formData.cpf.replace(/\D/g, ''); 
-      let cpfNumber = this.formData.cpf;
-  
-      // Adiciona os pontos e o hífen conforme o CPF é digitado
-      if (cpfNumber.length > 3 && cpfNumber.length < 7) {
-          cpfNumber = cpfNumber.substring(0, 3) + '.' + cpfNumber.substring(3);
-      } else if (cpfNumber.length > 6 && cpfNumber.length < 10) {
-          cpfNumber = cpfNumber.substring(0, 3) + '.' + cpfNumber.substring(3, 6) + '.' + cpfNumber.substring(6);
-      } else if (cpfNumber.length > 9) {
-          cpfNumber = cpfNumber.substring(0, 3) + '.' + cpfNumber.substring(3, 6) + '.' + cpfNumber.substring(6, 9) + '-' + cpfNumber.substring(9, 11);
-      }
-  
-      // Atualiza o valor do campo de entrada com o cpfNumber formatado
-      this.formData.cpf = cpfNumber;
-  },
 
     checkPasswordStrength() {
       const password = this.formData.password;
@@ -246,12 +228,11 @@ createApp({
       .then(data => {
         if (data) {
           if(data.data.user && data.data.user.date_subscription == null){
-            if (data.data.user.network.instagram || data.data.user.network.youtube || data.data.user.network.tiktok){
-              this.formUpdateUser(data.data.access_token, data.data.user.id);
-            }else{
-              this.error = 'Sua inscrição não pode ser efetivada pois não há rede social cadastrada. Acesse Creators.llc e ajuste suas informações.';
-              this.isLoading = false;
-            }
+            const now = new Date();
+            const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+            this.formData.date_subscription = formattedDate;
+
+            this.formUpdateUser(data.data.access_token, data.data.user.id);
           }else{
             this.isLoading = false;
             this.success = "E-mail já inscrito!";
@@ -265,7 +246,10 @@ createApp({
     },
     
     formUpdateUser(token, id) {
-      this.formData.new = true;
+      this.formData.validacaoRedes.forEach(element => {
+        this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
+      });
+      console.log(this.formData)
       fetch('https://creators.llc/api/v1/users/'+id, {
           method: 'PUT',
           body: JSON.stringify(this.formData),
@@ -337,17 +321,14 @@ createApp({
       this.error = "";
       this.success = "";
 
-      if (this.formData.cpf.length < 14) {
-        this.error = 'O CPF está incompleto.';
-        return;
-      }
+      this.validadeRedes()
 
       if(this.selectedCount >= 2 && this.validadeRedes()) {
         this.isLoading = true;
 
-        // const now = new Date();
-        // const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-        // this.formData.date_subscription = formattedDate;
+        const now = new Date();
+        const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+        this.formData.date_subscription = formattedDate;
 
         fetch('https://creators.llc/api/v1/users', {
             method: 'POST',
@@ -370,27 +351,16 @@ createApp({
                 const errorMessage = data.error.email[0];
                 this.error = errorMessage;
               }
-            }else if(data.error.cpf){
-              if (Array.isArray(data.error.cpf) && data.error.cpf.length > 0) {
-                const errorMessage = data.error.cpf[0];
-                this.error = errorMessage;
-              }              
-            }
-            else{
+            }else{
               this.error = 'Ocorreu um erro ao processar sua inscrição. Por favor, tente novamente mais tarde.';
             }
             this.isLoading = false;
           } else {
-            this.formData.new = false;
-            this.formData.validacaoRedes.forEach(element => {
-              this.formData[element.socialMedia] = this.getBaseLink(element.socialMedia) + element.link;
-            });
             this.formUpdateUser(data.data.access_token, data.data.user.id);
           }
-          
         })
       }else{
-        if(this.selectedCount < 2) {
+        if(this.selectedCount < 1) {
           this.error = 'É necessário selecionar no mínimo 2 verticais do seu conteúdo.';
         }else {
           this.error = 'É necessário selecionar no mínimo 1 rede.';
@@ -406,6 +376,7 @@ createApp({
         
         if (socialMediaVazia || linkVazio) {
           return false
+          
         } 
       } else {
           return false
