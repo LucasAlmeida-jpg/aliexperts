@@ -2,127 +2,129 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:url" content="https://creators.llc/aliexperts/">
-    <meta property="og:title" content="AliExperts">
-    <meta property="og:image" content="https://creators.llc/aliexperts/assets/Group539.png">
-    <meta property="og:description" content="Já pensou em crescer suas redes e sua monetização em parceria com o AliExpress? Inscreva-se para o primeiro programa de crescimento para nanoinfluenciadores, os AliExperts!">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:url" content="https://creators.llc/aliexperts/">
+  <meta property="og:title" content="AliExperts">
+  <meta property="og:image" content="https://creators.llc/aliexperts/assets/Group539.png">
+  <meta property="og:description"
+    content="Já pensou em crescer suas redes e sua monetização em parceria com o AliExpress? Inscreva-se para o primeiro programa de crescimento para nanoinfluenciadores, os AliExperts!">
+  <meta property="og:type" content="website">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="shortcut icon" href="https://creators.llc/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="shortcut icon" href="https://creators.llc/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    <title>AliExperts</title>
+  <title>AliExperts</title>
 </head>
 
 <body>
-    <div id="app">
-        <button class="btn btn-fixed" data-bs-toggle="modal" @click="toggleReturn" data-bs-target="#exampleModalToggle">Inscreva-se <span><img
-                    class="arrow" src="assets/Arrow1.png" alt=""></span></button>
-        <header>
-            <nav class="navbar navbar-expand-lg menu">
-                <div class="container d-flex justify-content-between">
-                    <a class="navbar-brand" href="https://creators.llc/" target="_blank">
-                        <img class="d-none d-md-block" src="./assets/white.svg" alt="creators logo">
-                        <img class="d-md-none d-block" src="./assets/white.svg" alt="creators logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+  <div id="app">
+    <button class="btn btn-fixed" data-bs-toggle="modal" @click="toggleReturn"
+      data-bs-target="#exampleModalToggle">Inscreva-se <span><img class="arrow" src="assets/Arrow1.png"
+          alt=""></span></button>
+    <header>
+      <nav class="navbar navbar-expand-lg menu">
+        <div class="container d-flex justify-content-between">
+          <a class="navbar-brand" href="https://creators.llc/" target="_blank">
+            <img class="d-none d-md-block" src="./assets/white.svg" alt="creators logo">
+            <img class="d-md-none d-block" src="./assets/white.svg" alt="creators logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                    <div class="collapse navbar-collapse" id="navbarMenu">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#como-funciona">Como Funciona</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#como-participar">Como participar</a>
-                            </li>
-                            <!-- <li class="nav-item">
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#como-funciona">Como Funciona</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#como-participar">Como participar</a>
+              </li>
+              <!-- <li class="nav-item">
                                 <a class="nav-link" href="#">Mentores</a>
                             </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#programacao">Programação</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#faq">FAQ</a>
-                            </li>
-                            <li class="nav-item">
-                                <button class="btn btn-nav" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalToggle" @click="toggleReturn">Inscreva-se</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <section class="main-section">
-            <div class="row container-fluid-0">
-                <div class="col-md-6 info">
-                    <div>
-                        <h1>AliExperts <br> Creator Program</h1>
-                        <p>Já pensou em crescer suas redes e sua monetização <br> em parceria com o AliExpress?
-                            Inscreva-se
-                            para o <br> primeiro programa de crescimento para <br> nanoinfluenciadores, os
-                            <strong>AliExperts!</strong>
-                        </p>
-                        <button class="btn" data-bs-toggle="modal" @click="toggleReturn" data-bs-target="#exampleModalToggle">
-                            Inscreva-se <span><img class="arrow" src="assets/Arrow1.png" alt=""></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="people" src="assets/people.svg" alt="">
-                </div>
+              <li class="nav-item">
+                <a class="nav-link" href="#programacao">Programação</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#faq">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-nav" data-bs-toggle="modal" data-bs-target="#exampleModalToggle"
+                  @click="toggleReturn">Inscreva-se</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="main-section">
+      <div class="row container-fluid-0">
+        <div class="col-md-6 info">
+          <div>
+            <h1>AliExperts <br> Creator Program</h1>
+            <p>Já pensou em crescer suas redes e sua monetização <br> em parceria com o AliExpress? <br>
+              Inscreva-se
+              para o primeiro programa de crescimento para nanoinfluenciadores, os
+              <strong>AliExperts!</strong>
+            </p>
+            <button class="btn" data-bs-toggle="modal" @click="toggleReturn" data-bs-target="#exampleModalToggle">
+              Inscreva-se <span><img class="arrow" src="assets/Arrow1.png" alt=""></span>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img class="people" src="assets/people.svg" alt="">
+        </div>
+      </div>
+    </section>
+    <main>
+      <div class="container" id="como-funciona">
+        <h2 class="margin-section">Como funciona o AliExperts</h2>
+        <div class="card" v-for="(item, index) in items" :key="index">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img :src="item.image"
+                alt=""></div>
+            <div class="col-md-6 info">
+              <h2 class="item-title"><span class="me-3"><img :src="item.numbers" alt=""></span>{{
+                item.title }}
+              </h2>
+              <p class="item-description" v-html="item.description"></p>
             </div>
-        </section>
-        <main>
-            <div class="container" id="como-funciona">
-                <h2 class="margin-section">Como funciona o AliExperts</h2>
-                <div class="card" v-for="(item, index) in items" :key="index">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img
-                                :src="item.image" alt=""></div>
-                        <div class="col-md-6 info">
-                            <h2 class="item-title"><span class="me-3"><img :src="item.numbers" alt=""></span>{{
-                                item.title }}
-                            </h2>
-                            <p class="item-description" v-html="item.description"></p>
-                        </div>
-                    </div>
-                </div>
-                <h2 class="margin-section" id="como-participar">Como participar do programa AliExperts</h2>
-                <div class="card" v-for="(item, index) in itemsWork" :key="index">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img
-                                :src="item.image" alt=""></div>
-                        <div class="col-md-6 info">
-                            <p class="item-description" v-html="item.description"></p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <h2 class="margin-section" id="como-participar">Como participar do programa AliExperts</h2>
+        <div class="card" v-for="(item, index) in itemsWork" :key="index">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-6 img-star d-flex align-items-center justify-content-center"><img :src="item.image"
+                alt=""></div>
+            <div class="col-md-6 info">
+              <p class="item-description" v-html="item.description"></p>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div v-for="(item, index) in itemsMiniCard" :key="index" class="col-md-6 col-sm-3">
-                        <div class="mini-card d-flex align-items-center justify-content-center">
-                            <span class="me-4"><img src="assets/losango.svg" alt=""></span>
-                            <p v-html="item.content"></p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div v-for="(item, index) in itemsMiniCard" :key="index" class="col-md-6 col-sm-3">
+            <div class="mini-card d-flex align-items-center justify-content-center">
+              <span class="me-4"><img src="assets/losango.svg" alt=""></span>
+              <p v-html="item.content"></p>
             </div>
-            <!-- <div class="container">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container">
                 <h2 class="margin-section">Aprenda com especialistas</h2>
                 <div class="carousel" data-flickity='{ "wrapAround": true }'>
                     <div class="carousel-cell" v-for="(tutor, index) in tutors" :key="index">
@@ -139,23 +141,23 @@
                     </div>
                 </div>
             </div> -->
-            <div class="container" id="programacao">
-                <h2 class="margin-section">Conteúdo educacional do AliExperts</h2>
-                <div class="row d-flex justify-content-center card-part">
-                    <div v-for="(item, index) in cards" :key="index" class="col-md card-educational">
-                        <div class="text-center alignment">
-                            <span class="item-number-card">{{item.numbers}}</span>
-                            <p class="mt-5" v-html="item.description"></p>
-                        </div>
-                    </div>
-                </div>
+      <div class="container" id="programacao">
+        <h2 class="margin-section">Conteúdo educacional do AliExperts</h2>
+        <div class="row d-flex justify-content-center card-part">
+          <div v-for="(item, index) in cards" :key="index" class="col-md card-educational">
+            <div class="text-center alignment">
+              <span class="item-number-card">{{item.numbers}}</span>
+              <p class="mt-4 mt-md-5" v-html="item.description"></p>
             </div>
-            <div class="container" id="faq">
-                <h2 class="margin-section">FAQ</h2>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
+          </div>
+        </div>
+      </div>
+      <div class="container" id="faq">
+        <h2 class="margin-section">FAQ</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
                                 <div @click="toggleAccordion(index)" class="accordion-header">
                                     {{ item.title }}
                                     <span :class="{ 'rotate-arrow': activeIndex === index }">&#9660;</span>
@@ -164,146 +166,154 @@
                                     {{ item.content }}
                                 </div>
                             </div> -->
-                            <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
-                                <div @click="toggleAccordion(index)" class="accordion-header">
-                                    {{ item.title }}
-                                    <span :class="{ 'rotate-arrow': activeIndex === index }">&#9660;</span>
-                                </div>
-                                <div v-if="activeIndex === index" class="accordion-content" v-html="item.content"></div>
-                            </div>
-                            
-                        </div>
-                    </div>
+              <div v-for="(item, index) in accordionItems" :key="index" class="accordion-item">
+                <div @click="toggleAccordion(index)" class="accordion-header">
+                  {{ item.title }}
+                  <span :class="{ 'rotate-arrow': activeIndex === index }">&#9660;</span>
                 </div>
-            </div>
-        </main>
-        <div class="margin-section"></div>
-        <footer class="text-dark">
-            <div class="container">
-                <div class="row d-flex align-items-center justify-content-between">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <img class="footer-img" src="assets/AliExpress02.png" alt="Logo">
-                        </div>
-                        <div>
-                            <ul class="list-unstyled d-flex gap-4">
-                                <li><a href="#como-funciona">Como funciona</a></li>
-                                <li><a href="#como-participar">Como participar</a></li>
-                                <!-- <li><a href="#">Mentores</a></li> -->
-                                <li><a href="#programacao">Programação</a></li>
-                                <li><a href="#faq">FAQ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <img src="./assets/black.svg" alt="">
-                        <p class="mt-3 email">Fale conosco | <a href="mailto:hello@creators.llc">hello@creators.llc</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+                <div v-if="activeIndex === index" class="accordion-content" v-html="item.content"></div>
+              </div>
 
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel"><img src="assets/black.svg" alt=""></h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div v-if="isLoading" class="text-center">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Carregando...</span>
-                            </div>
-                            <p class="mt-2">Aguarde enquanto processamos sua inscrição...</p>
-                        </div>
-                        <div v-if="error" class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </div>
-                        <div v-if="success" class="alert alert-success" role="alert">
-                            {{ success }}
-                        </div>
-                        <form v-else>
-                            <p v-if="showAllFields"><strong>Faça o cadastro para se inscrever</strong></p>
-                            <div v-if="showAllFields" class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingCpf"
-                                    placeholder="###.###.###.##" v-model="formData.cpf"
-                                    @input="formatCpf" value="Cpf"
-                                    :maxlength="14" :minlength="14">
-                                <label for="floatingCpf">CPF</label>
-                            </div>
-                            <div class="form-floating mb-2">
-                                <input type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com" v-model="formData.email">
-                                <label for="floatingInput">E-mail</label>
-                            </div>
-                            
-                            <div class="form-floating mb-2">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="formData.password" @input="checkPasswordStrength">
-                                <label for="floatingPassword">Senha</label>
-                                <div v-if="passwordStrength && showAllFields" :class="{'text-success': passwordStrength === 'Forte', 'text-warning': passwordStrength === 'Média', 'text-danger': passwordStrength === 'Fraca'}">
-                                  <span class="tooltip-trigger" @mouseenter="showTooltip" @mouseleave="hideTooltip">Senha {{ passwordStrength }}</span>
-                                  <div v-show="showingTooltip" class="tooltip-content">
-                                    Para que a senha seja forte, é preciso ter letra maiúscula, caractere especial e números!
-                                  </div>
-                                </div>
-                              </div>
-
-                            <div v-if="showAllFields">
-                                <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="floatingName" placeholder="Nome"
-                                        v-model="formData.name">
-                                    <label for="floatingName">Nome</label>
-                                </div>
-                                <div class="form-floating mb-2">
-                                    <input type="tel" class="form-control" id="floatingPhone" v-model="formData.phone" @input="formatTelefone" value="Telefone">
-                                    <label for="floatingPhone">Telefone com DDD (xx)xxxxx-xxxx</label>
-                                </div>                                  
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="modal-footer" v-if="!success">
-                        <div >
-                            <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já faço parte da Creators.llc</button>
-                            <button v-else-if="!showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Voltar</button>
-                            <button v-if="!showAllFields" class="btn bg-dark me-2" @click="formForgot">Esqueci a senha</button>
-                        </div>
-                        <div >
-                            <button v-if="showAllFields && (formData.name === '' || formData.email === '' || (formData.phone === '' || formData.phone.length < 14) || formData.password === '')" class="btn me-2" disabled>Próximo</button>
-                            <button v-else-if="!showAllFields && (formData.email === '' || formData.password === '')" class="btn me-2" disabled>Inscreva-se</button>
-                            <button v-else-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Próximo</button>
-                            <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
-                        </div>                                             
-                    </div>
-                </div>
             </div>
+          </div>
         </div>
-        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-            tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2"><img src="assets/black.svg" alt="">
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div v-if="isLoading" class="text-center">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Carregando...</span>
-                            </div>
-                                <p class="mt-2">Aguarde enquanto processamos sua inscrição...</p>
-                        </div>
-                        <div v-if="error" class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </div>
-                        <div v-if="success" class="alert alert-success" role="alert">
-                            {{ success }}
-                        </div>
-                        <form v-else>
-                            <!-- <div class="container">
+      </div>
+    </main>
+    <div class="margin-section"></div>
+    <footer class="text-dark">
+      <div class="container">
+        <div class="row d-flex align-items-center justify-content-between">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <img class="footer-img" src="assets/AliExpress02.png" alt="Logo">
+            </div>
+            <div>
+              <ul class="list-unstyled d-flex gap-4">
+                <li><a href="#como-funciona">Como funciona</a></li>
+                <li><a href="#como-participar">Como participar</a></li>
+                <!-- <li><a href="#">Mentores</a></li> -->
+                <li><a href="#programacao">Programação</a></li>
+                <li><a href="#faq">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <img src="./assets/black.svg" alt="">
+            <p class="mt-3 email">Fale conosco | <a href="mailto:hello@creators.llc">hello@creators.llc</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel"><img src="assets/black.svg" alt=""></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div v-if="isLoading" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Carregando...</span>
+              </div>
+              <p class="mt-2">Aguarde enquanto processamos sua inscrição...</p>
+            </div>
+            <div v-if="error" class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+            <div v-if="success" class="alert alert-success" role="alert">
+              {{ success }}
+            </div>
+            <form v-else>
+              <p v-if="showAllFields"><strong>Faça o cadastro para se inscrever</strong></p>
+              <div v-if="showAllFields" class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingCpf" placeholder="###.###.###.##"
+                  v-model="formData.cpf" @input="formatCpf" value="Cpf" :maxlength="14" :minlength="14">
+                <label for="floatingCpf">CPF</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                  v-model="formData.email">
+                <label for="floatingInput">E-mail</label>
+              </div>
+
+              <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                  v-model="formData.password" @input="checkPasswordStrength">
+                <label for="floatingPassword">Senha</label>
+                <div v-if="passwordStrength && showAllFields"
+                  :class="{'text-success': passwordStrength === 'Forte', 'text-warning': passwordStrength === 'Média', 'text-danger': passwordStrength === 'Fraca'}">
+                  <span class="tooltip-trigger" @mouseenter="showTooltip" @mouseleave="hideTooltip">Senha {{
+                    passwordStrength }}</span>
+                  <div v-show="showingTooltip" class="tooltip-content">
+                    Para que a senha seja forte, é preciso ter letra maiúscula, caractere especial e números!
+                  </div>
+                </div>
+              </div>
+
+              <div v-if="showAllFields">
+                <div class="form-floating mb-2">
+                  <input type="text" class="form-control" id="floatingName" placeholder="Nome" v-model="formData.name">
+                  <label for="floatingName">Nome</label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input type="tel" class="form-control" id="floatingPhone" v-model="formData.phone"
+                    @input="formatTelefone" value="Telefone">
+                  <label for="floatingPhone">Telefone com DDD (xx)xxxxx-xxxx</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer" v-if="!success">
+            <div>
+              <button v-if="showAllFields" class="btn bg-dark me-2" @click="toggleFieldsVisibility">Já faço parte da
+                Creators.llc</button>
+              <button v-else-if="!showAllFields" class="btn bg-dark me-2"
+                @click="toggleFieldsVisibility">Voltar</button>
+              <button v-if="!showAllFields" class="btn bg-dark me-2" @click="formForgot">Esqueci a senha</button>
+            </div>
+            <div>
+              <button
+                v-if="showAllFields && (formData.name === '' || formData.email === '' || (formData.phone === '' || formData.phone.length < 14) || formData.password === '')"
+                class="btn me-2" disabled>Próximo</button>
+              <button v-else-if="!showAllFields && (formData.email === '' || formData.password === '')" class="btn me-2"
+                disabled>Inscreva-se</button>
+              <button v-else-if="showAllFields" class="btn me-2" data-bs-target="#exampleModalToggle2"
+                data-bs-toggle="modal">Próximo</button>
+              <button v-else class="btn me-2" @click="formLogin">Inscreva-se</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+      tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2"><img src="assets/black.svg" alt="">
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div v-if="isLoading" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Carregando...</span>
+              </div>
+              <p class="mt-2">Aguarde enquanto processamos sua inscrição...</p>
+            </div>
+            <div v-if="error" class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+            <div v-if="success" class="alert alert-success" role="alert">
+              {{ success }}
+            </div>
+            <form v-else>
+              <!-- <div class="container">
                                 <span class="mb-2">Selecione as verticais do seu conteúdo</span>
                                 <div class="row border mb-3">
                                     <div class="col-md-6">
@@ -322,97 +332,100 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="container">
-                                <span class="mb-2">Selecione as verticais do seu conteúdo</span>
-                                <div class="row border mb-3">
-                                  <div class="col-md-6">
-                                    <div class="form-check" v-for="v in vertical.slice(0, 4)" :key="v.id">
-                                      <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name" :value="v.id" v-model="formData.specialities" @change="updateSelectedCount" />
-                                      <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-check" v-for="v in vertical.slice(4)" :key="v.id">
-                                      <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name" :value="v.id" v-model="formData.specialities" @change="updateSelectedCount" />
-                                      <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
-                                    </div>
-                                  </div>
-                                <!-- </div>
+              <div class="container">
+                <span class="mb-2">Selecione as verticais do seu conteúdo</span>
+                <div class="row border mb-3">
+                  <div class="col-md-6">
+                    <div class="form-check" v-for="v in vertical.slice(0, 4)" :key="v.id">
+                      <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name" :value="v.id"
+                        v-model="formData.specialities" @change="updateSelectedCount" />
+                      <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-check" v-for="v in vertical.slice(4)" :key="v.id">
+                      <input type="checkbox" class="form-check-input" :id="'checkbox-' + v.name" :value="v.id"
+                        v-model="formData.specialities" @change="updateSelectedCount" />
+                      <label class="form-check-label" :for="'checkbox-' + v.name">{{ v.name }}</label>
+                    </div>
+                  </div>
+                  <!-- </div>
                                 <div v-if="!isValid" class="alert alert-danger" role="alert">
                                   Selecione pelo menos dois itens.
                                 </div> -->
-                            </div>
-                            <div>
-                                <div class="my-4" v-for="(item, index) in formData.validacaoRedes" :key="index">
-                                    <div class="form-floating mb-2">
-                                        <select v-model="item.socialMedia" class="form-select form-select-sm mb-3"
-                                            aria-label=".form-select-sm example">
-                                            <option value="" disabled selected>Escolha sua rede</option>
-                                            <option value="instagram">Instagram</option>
-                                            <option value="tiktok">TikTok</option>
-                                            <option value="youtube">Youtube</option>
-                                        </select>
-                                    </div>
-                                    <div v-if="item.socialMedia !== ''">
-                                        <label class="font-label" :for="'socialMediaInput' + index">Link:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="form-control link">{{ getBaseLink(item.socialMedia)
-                                                    }}</span>
-                                            </div>
-                                            <input v-model="item.link" type="text" :id="'socialMediaInput' + index"
-                                                class="form-control link">
-                                        </div>
-                                    </div>
-                                    <button @click="removeSocialMedia(index)"
-                                        v-if="formData.validacaoRedes.length > 2">Remover</button>
-                                </div>
-
-                                <span class="span-list" @click="addSocialMedia"
-                                    v-if="formData.validacaoRedes.length < 2">Adicionar rede social + </span>
-                                <span class="span-list" @click="removeSocialMedia"
-                                    v-if="formData.validacaoRedes.length == 2">Remover rede social - </span>
-                            </div>
-
-                            <div class="custom-checkbox mb-4">
-                                <input type="checkbox" class="mt-4" checked> Li e concordo com os <span
-                                    class="span-lista"> <a href="https://creators.llc/termos/" target="_blank">Termos de
-                                        uso</a></span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer" v-if="!success">
-                        <button class="btn bg-dark" @click="toggleReturn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Voltar</button>
-                        <button class="btn" @click="formCreateUser">Cadastrar</button>
-                    </div>                   
                 </div>
-            </div>
+                <div>
+                  <div class="my-4" v-for="(item, index) in formData.validacaoRedes" :key="index">
+                    <div class="form-floating mb-2">
+                      <select v-model="item.socialMedia" class="form-select form-select-sm mb-3"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected>Escolha sua rede</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="youtube">Youtube</option>
+                      </select>
+                    </div>
+                    <div v-if="item.socialMedia !== ''">
+                      <label class="font-label" :for="'socialMediaInput' + index">Link:</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="form-control link">{{ getBaseLink(item.socialMedia)
+                            }}</span>
+                        </div>
+                        <input v-model="item.link" type="text" :id="'socialMediaInput' + index"
+                          class="form-control link">
+                      </div>
+                    </div>
+                    <button @click="removeSocialMedia(index)" v-if="formData.validacaoRedes.length > 2">Remover</button>
+                  </div>
+
+                  <span class="span-list" @click="addSocialMedia" v-if="formData.validacaoRedes.length < 2">Adicionar
+                    rede social + </span>
+                  <span class="span-list" @click="removeSocialMedia" v-if="formData.validacaoRedes.length == 2">Remover
+                    rede social - </span>
+                </div>
+
+                <div class="custom-checkbox mb-4">
+                  <input type="checkbox" class="mt-4" checked> Li e concordo com os <span class="span-lista"> <a
+                      href="https://creators.llc/termos/" target="_blank">Termos de
+                      uso</a></span>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer" v-if="!success">
+            <button class="btn bg-dark" @click="toggleReturn" data-bs-target="#exampleModalToggle"
+              data-bs-toggle="modal">Voltar</button>
+            <button class="btn" @click="formCreateUser">Cadastrar</button>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-    <script src="js/all.js"></script>
-    <!-- Google Analytics -->
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-90265209-1', 'auto');
-        ga('send', 'pageview');
-        </script>
-      
-        <!-- Google Tag Manager -->
-        <script>
-        (function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({
-            'gtm.start':
-            new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-58WRXZQ');
-        </script>
-    </body>
+  </div>
+  </div>
+  <script src="js/all.js"></script>
+  <!-- Google Analytics -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-90265209-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-58WRXZQ');
+  </script>
+</body>
+
 </html>
